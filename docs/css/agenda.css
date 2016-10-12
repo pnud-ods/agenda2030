@@ -1,0 +1,103 @@
+ul {list-style-type: none;}
+
+/* Month header */
+.month {
+    padding: 30px 25px;
+    width: 100%;
+    background: #fff;
+}
+
+/* Month list */
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: #6d6d6d;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#fff;
+
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #8e8e8e;
+    font-weight: bold;
+    text-align: center;
+    font-size:12pt;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 20px 0 30px 0;
+    background: #fff;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:14pt;
+    font-weight: bold;
+    color:#777;
+    padding: 10px;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+    padding: 15px;
+    /*background: #1abc9c;*/
+    /*color: white !important;*/
+    background-image: url('../images/ods_icon_calendar.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+}
+
+/* ------------- */
+
+.agenda-events-label {
+    color:#abbbc3;
+    font-size:12pt;
+    font-weight: bold;
+}
+
+.border-botton-events-list {
+    border-bottom: 4px solid #798a94;
+    position: absolute;
+    width: 20%;
+    left: 40%;
+    border-radius:2px;
+    bottom: -16px;
+}
+
+.left-side-calendar-container {
+    margin-right: -15px;margin-left: 15px;height:550px;background-color: #fff;
+    border-radius: 10px 0px 0px 10px;
+}
