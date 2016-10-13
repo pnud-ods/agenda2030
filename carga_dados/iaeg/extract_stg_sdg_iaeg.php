@@ -1,0 +1,51 @@
+<?php
+/**
+ * Código para carga dos dados nas STAGEs dos indicadores
+ * Busca os dados dos CSVs e leva para a stage.
+ * Origem dos dados: http://unstats.un.org/sdgs/indicators/database/
+ */
+
+//Carga na STG_INDICADORES_IAEG_SDG_BRAZIL
+$load_data_stg = "
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'source\\SDG Indicators_SDG Indicato_Brazil.csv' INTO TABLE `agenda2030`.`stg_indicadores_iaeg_sdg_brazil` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (`SortOrder1`, `Goal`, `Target`, `Indicator`, `Series Code`, `Series Description`, `SortOrder2`, `Country or Area`, `SIDS`, `LDC`, `LLDC`, `Frequency`, `Unit`, `Location`, `Age Group`, `Sex`, `Source Type`, `1986`, `FN_1986`, `1987`, `FN_1987`, `1988`, `FN_1988`, `1989`, `FN_1989`, `1990`, `FN_1990`, `1991`, `FN_1991`, `1992`, `FN_1992`, `1993`, `FN_1993`, `1994`, `FN_1994`, `1995`, `FN_1995`, `1996`, `FN_1996`, `1997`, `FN_1997`, `1998`, `FN_1998`, `1999`, `FN_1999`, `2000`, `FN_2000`, `2001`, `FN_2001`, `2002`, `FN_2002`, `2003`, `FN_2003`, `2004`, `FN_2004`, `2005`, `FN_2005`, `2006`, `FN_2006`, `2007`, `FN_2007`, `2008`, `FN_2008`, `2009`, `FN_2009`, `2010`, `FN_2010`, `2011`, `FN_2011`, `2012`, `FN_2012`, `2013`, `FN_2013`, `2014`, `FN_2014`, `2015`, `FN_2015`, `2016`, `FN_2016`);
+";
+
+//Carga na STG_INDICADORES_IAEG_SDG_LATIN_AMERICA
+$load_data_stg = "
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'source\\SDG Indicators_SDG Indicators_LatinAmerica.csv' INTO TABLE `agenda2030`.`stg_indicadores_iaeg_sdg_latin_america` CHARACTER SET utf8 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (`SortOrder1`, `Goal`, `Target`, `Indicator`, `Series Code`, `Series Description`, `SortOrder2`, `Country or Area`, `SIDS`, `LDC`, `LLDC`, `Frequency`, `Unit`, `Location`, `Age Group`, `Sex`, `Source Type`, `1990`, `FN_1990`, `1991`, `FN_1991`, `1992`, `FN_1992`, `1993`, `FN_1993`, `1994`, `FN_1994`, `1995`, `FN_1995`, `1996`, `FN_1996`, `1997`, `FN_1997`, `1998`, `FN_1998`, `1999`, `FN_1999`, `2000`, `FN_2000`, `2001`, `FN_2001`, `2002`, `FN_2002`, `2003`, `FN_2003`, `2004`, `FN_2004`, `2005`, `FN_2005`, `2006`, `FN_2006`, `2007`, `FN_2007`, `2008`, `FN_2008`, `2009`, `FN_2009`, `2010`, `FN_2010`, `2011`, `FN_2011`, `2012`, `FN_2012`, `2013`, `FN_2013`, `2014`, `FN_2014`, `2015`, `FN_2015`, `2016`, `FN_2016`);
+";
+
+//Carga na STG_INDICADORES_IAEG_SDG_WORLD
+$load_data_stg = "
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'source\\SDG Indicators_SDG Indicators_World.csv' INTO TABLE `agenda2030`.`stg_indicadores_iaeg_sdg_world` CHARACTER SET utf8 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (`SortOrder1`, `Goal`, `Target`, `Indicator`, `Series Code`, `Series Description`, `SortOrder2`, `Country or Area`, `SIDS`, `LDC`, `LLDC`, `Frequency`, `Unit`, `Location`, `Age Group`, `Sex`, `Source Type`, `1990`, `FN_1990`, `1991`, `FN_1991`, `1992`, `FN_1992`, `1993`, `FN_1993`, `1994`, `FN_1994`, `1995`, `FN_1995`, `1996`, `FN_1996`, `1997`, `FN_1997`, `1998`, `FN_1998`, `1999`, `FN_1999`, `2000`, `FN_2000`, `2001`, `FN_2001`, `2002`, `FN_2002`, `2003`, `FN_2003`, `2004`, `FN_2004`, `2005`, `FN_2005`, `2006`, `FN_2006`, `2007`, `FN_2007`, `2008`, `FN_2008`, `2009`, `FN_2009`, `2010`, `FN_2010`, `2011`, `FN_2011`, `2012`, `FN_2012`, `2013`, `FN_2013`, `2014`, `FN_2014`, `2015`, `FN_2015`, `2016`, `FN_2016`);
+";
+
+//Atualização das descrições
+$update_descricao = "
+update stg_indicadores_iaeg_sdg_brazil s
+set s.`Series Description` = trim(substring(s.`Series Description`, length(SUBSTRING_INDEX(s.`Series Description`,' ', 1)) + 1));
+update stg_indicadores_iaeg_sdg_latin_america s
+set s.`Series Description` = trim(substring(s.`Series Description`, length(SUBSTRING_INDEX(s.`Series Description`,' ', 1)) + 1));
+update stg_indicadores_iaeg_sdg_world s
+set s.`Series Description` = trim(substring(s.`Series Description`, length(SUBSTRING_INDEX(s.`Series Description`,' ', 1)) + 1));
+";
+
+$update_descricao = "
+update stg_indicadores_iaeg_sdg_brazil s
+set s.`Series Description` = substring(s.`Series Description`, 3);
+update stg_indicadores_iaeg_sdg_latin_america s
+set s.`Series Description` = substring(s.`Series Description`, 3);
+update stg_indicadores_iaeg_sdg_world s
+set s.`Series Description` = substring(s.`Series Description`, 3);
+";
+
+//Creata view VW_STG_INDICADORES_IAEG_SDG
+$create_view = "
+CREATE ALGORITHM=UNDEFINED DEFINER=`pnud`@`%`
+SQL SECURITY DEFINER VIEW `vw_stg_indicadores_iaeg_sdg` AS
+select `sb`.`SortOrder1` AS `SortOrder1`,`sb`.`Goal` AS `Goal`,`sb`.`Target` AS `Target`,`sb`.`Indicator` AS `Indicator`,`sb`.`Series Code` AS `Series Code`,`sb`.`Series Description` AS `Series Description`,`sb`.`SortOrder2` AS `SortOrder2`,`sb`.`Country or Area` AS `Country or Area`,`sb`.`SIDS` AS `SIDS`,`sb`.`LDC` AS `LDC`,`sb`.`LLDC` AS `LLDC`,`sb`.`Frequency` AS `Frequency`,`sb`.`Unit` AS `Unit`,`sb`.`Location` AS `Location`,`sb`.`Age Group` AS `Age Group`,`sb`.`Sex` AS `Sex`,`sb`.`Source Type` AS `Source Type`,`sb`.`1990` AS `1990`,`sb`.`FN_1990` AS `FN_1990`,`sb`.`1991` AS `1991`,`sb`.`FN_1991` AS `FN_1991`,`sb`.`1992` AS `1992`,`sb`.`FN_1992` AS `FN_1992`,`sb`.`1993` AS `1993`,`sb`.`FN_1993` AS `FN_1993`,`sb`.`1994` AS `1994`,`sb`.`FN_1994` AS `FN_1994`,`sb`.`1995` AS `1995`,`sb`.`FN_1995` AS `FN_1995`,`sb`.`1996` AS `1996`,`sb`.`FN_1996` AS `FN_1996`,`sb`.`1997` AS `1997`,`sb`.`FN_1997` AS `FN_1997`,`sb`.`1998` AS `1998`,`sb`.`FN_1998` AS `FN_1998`,`sb`.`1999` AS `1999`,`sb`.`FN_1999` AS `FN_1999`,`sb`.`2000` AS `2000`,`sb`.`FN_2000` AS `FN_2000`,`sb`.`2001` AS `2001`,`sb`.`FN_2001` AS `FN_2001`,`sb`.`2002` AS `2002`,`sb`.`FN_2002` AS `FN_2002`,`sb`.`2003` AS `2003`,`sb`.`FN_2003` AS `FN_2003`,`sb`.`2004` AS `2004`,`sb`.`FN_2004` AS `FN_2004`,`sb`.`2005` AS `2005`,`sb`.`FN_2005` AS `FN_2005`,`sb`.`2006` AS `2006`,`sb`.`FN_2006` AS `FN_2006`,`sb`.`2007` AS `2007`,`sb`.`FN_2007` AS `FN_2007`,`sb`.`2008` AS `2008`,`sb`.`FN_2008` AS `FN_2008`,`sb`.`2009` AS `2009`,`sb`.`FN_2009` AS `FN_2009`,`sb`.`2010` AS `2010`,`sb`.`FN_2010` AS `FN_2010`,`sb`.`2011` AS `2011`,`sb`.`FN_2011` AS `FN_2011`,`sb`.`2012` AS `2012`,`sb`.`FN_2012` AS `FN_2012`,`sb`.`2013` AS `2013`,`sb`.`FN_2013` AS `FN_2013`,`sb`.`2014` AS `2014`,`sb`.`FN_2014` AS `FN_2014`,`sb`.`2015` AS `2015`,`sb`.`FN_2015` AS `FN_2015`,`sb`.`2016` AS `2016`,`sb`.`FN_2016` AS `FN_2016` from `stg_indicadores_iaeg_sdg_brazil` `sb`
+union
+select `sla`.`SortOrder1` AS `SortOrder1`,`sla`.`Goal` AS `Goal`,`sla`.`Target` AS `Target`,`sla`.`Indicator` AS `Indicator`,`sla`.`Series Code` AS `Series Code`,`sla`.`Series Description` AS `Series Description`,`sla`.`SortOrder2` AS `SortOrder2`,`sla`.`Country or Area` AS `Country or Area`,`sla`.`SIDS` AS `SIDS`,`sla`.`LDC` AS `LDC`,`sla`.`LLDC` AS `LLDC`,`sla`.`Frequency` AS `Frequency`,`sla`.`Unit` AS `Unit`,`sla`.`Location` AS `Location`,`sla`.`Age Group` AS `Age Group`,`sla`.`Sex` AS `Sex`,`sla`.`Source Type` AS `Source Type`,`sla`.`1990` AS `1990`,`sla`.`FN_1990` AS `FN_1990`,`sla`.`1991` AS `1991`,`sla`.`FN_1991` AS `FN_1991`,`sla`.`1992` AS `1992`,`sla`.`FN_1992` AS `FN_1992`,`sla`.`1993` AS `1993`,`sla`.`FN_1993` AS `FN_1993`,`sla`.`1994` AS `1994`,`sla`.`FN_1994` AS `FN_1994`,`sla`.`1995` AS `1995`,`sla`.`FN_1995` AS `FN_1995`,`sla`.`1996` AS `1996`,`sla`.`FN_1996` AS `FN_1996`,`sla`.`1997` AS `1997`,`sla`.`FN_1997` AS `FN_1997`,`sla`.`1998` AS `1998`,`sla`.`FN_1998` AS `FN_1998`,`sla`.`1999` AS `1999`,`sla`.`FN_1999` AS `FN_1999`,`sla`.`2000` AS `2000`,`sla`.`FN_2000` AS `FN_2000`,`sla`.`2001` AS `2001`,`sla`.`FN_2001` AS `FN_2001`,`sla`.`2002` AS `2002`,`sla`.`FN_2002` AS `FN_2002`,`sla`.`2003` AS `2003`,`sla`.`FN_2003` AS `FN_2003`,`sla`.`2004` AS `2004`,`sla`.`FN_2004` AS `FN_2004`,`sla`.`2005` AS `2005`,`sla`.`FN_2005` AS `FN_2005`,`sla`.`2006` AS `2006`,`sla`.`FN_2006` AS `FN_2006`,`sla`.`2007` AS `2007`,`sla`.`FN_2007` AS `FN_2007`,`sla`.`2008` AS `2008`,`sla`.`FN_2008` AS `FN_2008`,`sla`.`2009` AS `2009`,`sla`.`FN_2009` AS `FN_2009`,`sla`.`2010` AS `2010`,`sla`.`FN_2010` AS `FN_2010`,`sla`.`2011` AS `2011`,`sla`.`FN_2011` AS `FN_2011`,`sla`.`2012` AS `2012`,`sla`.`FN_2012` AS `FN_2012`,`sla`.`2013` AS `2013`,`sla`.`FN_2013` AS `FN_2013`,`sla`.`2014` AS `2014`,`sla`.`FN_2014` AS `FN_2014`,`sla`.`2015` AS `2015`,`sla`.`FN_2015` AS `FN_2015`,`sla`.`2016` AS `2016`,`sla`.`FN_2016` AS `FN_2016` from `stg_indicadores_iaeg_sdg_latin_america` `sla`
+union
+select `sw`.`SortOrder1` AS `SortOrder1`,`sw`.`Goal` AS `Goal`,`sw`.`Target` AS `Target`,`sw`.`Indicator` AS `Indicator`,`sw`.`Series Code` AS `Series Code`,`sw`.`Series Description` AS `Series Description`,`sw`.`SortOrder2` AS `SortOrder2`,`sw`.`Country or Area` AS `Country or Area`,`sw`.`SIDS` AS `SIDS`,`sw`.`LDC` AS `LDC`,`sw`.`LLDC` AS `LLDC`,`sw`.`Frequency` AS `Frequency`,`sw`.`Unit` AS `Unit`,`sw`.`Location` AS `Location`,`sw`.`Age Group` AS `Age Group`,`sw`.`Sex` AS `Sex`,`sw`.`Source Type` AS `Source Type`,`sw`.`1990` AS `1990`,`sw`.`FN_1990` AS `FN_1990`,`sw`.`1991` AS `1991`,`sw`.`FN_1991` AS `FN_1991`,`sw`.`1992` AS `1992`,`sw`.`FN_1992` AS `FN_1992`,`sw`.`1993` AS `1993`,`sw`.`FN_1993` AS `FN_1993`,`sw`.`1994` AS `1994`,`sw`.`FN_1994` AS `FN_1994`,`sw`.`1995` AS `1995`,`sw`.`FN_1995` AS `FN_1995`,`sw`.`1996` AS `1996`,`sw`.`FN_1996` AS `FN_1996`,`sw`.`1997` AS `1997`,`sw`.`FN_1997` AS `FN_1997`,`sw`.`1998` AS `1998`,`sw`.`FN_1998` AS `FN_1998`,`sw`.`1999` AS `1999`,`sw`.`FN_1999` AS `FN_1999`,`sw`.`2000` AS `2000`,`sw`.`FN_2000` AS `FN_2000`,`sw`.`2001` AS `2001`,`sw`.`FN_2001` AS `FN_2001`,`sw`.`2002` AS `2002`,`sw`.`FN_2002` AS `FN_2002`,`sw`.`2003` AS `2003`,`sw`.`FN_2003` AS `FN_2003`,`sw`.`2004` AS `2004`,`sw`.`FN_2004` AS `FN_2004`,`sw`.`2005` AS `2005`,`sw`.`FN_2005` AS `FN_2005`,`sw`.`2006` AS `2006`,`sw`.`FN_2006` AS `FN_2006`,`sw`.`2007` AS `2007`,`sw`.`FN_2007` AS `FN_2007`,`sw`.`2008` AS `2008`,`sw`.`FN_2008` AS `FN_2008`,`sw`.`2009` AS `2009`,`sw`.`FN_2009` AS `FN_2009`,`sw`.`2010` AS `2010`,`sw`.`FN_2010` AS `FN_2010`,`sw`.`2011` AS `2011`,`sw`.`FN_2011` AS `FN_2011`,`sw`.`2012` AS `2012`,`sw`.`FN_2012` AS `FN_2012`,`sw`.`2013` AS `2013`,`sw`.`FN_2013` AS `FN_2013`,`sw`.`2014` AS `2014`,`sw`.`FN_2014` AS `FN_2014`,`sw`.`2015` AS `2015`,`sw`.`FN_2015` AS `FN_2015`,`sw`.`2016` AS `2016`,`sw`.`FN_2016` AS `FN_2016` from `stg_indicadores_iaeg_sdg_world` `sw`;
+";
