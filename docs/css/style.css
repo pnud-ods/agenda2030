@@ -1,0 +1,111 @@
+.top-menu-background {
+	background-color: #18629c;
+}
+
+.top-menu-height {
+	min-height:50px;
+}
+
+.header-background {
+	background: #1c65a3; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #1c65a3 , #1f8cdf); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #1c65a3 , #1f8cdf); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.header-landing-height {
+	min-height: 450px;
+}
+
+.header-title-height {
+	min-height: 180px;
+}
+
+.title-font {
+	font-family:Roboto, Helvetica, Arial, sans-serif;
+}
+
+.subtitle-font {
+	font-size:16pt;font-weight:200;
+}
+
+.question-font {
+	/*font-family:Roboto, Helvetica, Arial, sans-serif;*/
+	font-size:16pt;font-weight:400;
+}
+
+.text-white-shadow {
+	text-shadow: 0px 0px 18px rgba(255, 255, 255, 0.58);
+}
+
+.font-white {
+	color:#fff;
+}
+
+.header-icons {
+	padding:0px 30px 0px 30px;
+	font-weight: 400;line-height:22pt;
+}
+
+.navbar-brand, .navbar-nav>li>a{
+	color:#eaeaea;
+	text-shadow: 0px 0px;
+	font-weight:100;
+	font-family: Roboto;
+
+}
+
+.menu-list a:hover{
+	color:#1c65a3;
+	text-shadow: 0px 0px;
+}
+
+.ods-logo-container {
+	height:100px;
+	/*margin-right:3px;*/
+	padding:0 5px;
+}
+
+.about-agenda-icon-background {
+	display:flex;
+	min-height:170px;
+	background-image: url('../images/about_agenda/line_icons_bg.png');
+	background-repeat: repeat-y;
+	background-position: center;
+	margin-right:-90px;
+}
+
+.about-agenda-text {
+	display:flex;
+	min-height:170px;
+	font-size:16pt;
+	color:#797979;
+}
+
+.about-ods-text {
+	display:flex;
+	min-height:410px;
+	font-size:14pt;
+	color:#595959;
+}
+
+.blue-customized-button {
+	background-color:#1a8dde;
+	color:#fff;
+	font-weight:400;
+	font-size:14pt;
+	padding:10px 20px;
+	border-radius:20px;
+}
+
+.consulta-table-grid {
+	display:block;max-height:600px;overflow-y: auto;
+}
+
+.consulta-table-grid tr td:hover {
+	background-color: #ededed;
+	cursor:pointer;
+}
+
+.consulta-td-cell {
+	padding:5px;font-size:10pt;
+}
