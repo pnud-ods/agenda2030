@@ -1,7 +1,7 @@
 <?php
 $opcoes_menu = array(
-    array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => '', 'side' => 'left'),
-    array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => '', 'side' => 'left'),
+    array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => 'A Agenda 2030', 'side' => 'left'),
+    array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => 'Consultar Indicador', 'side' => 'left'),
     array('label' => 'Biblioteca', 'link' => 'publicacoes.php', 'title' => '', 'side' => 'left'),
     //array('label' => 'Quem Somos', 'link' => 'quem_somos.php', 'title' => '', 'side' => ''),
     array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
@@ -40,6 +40,13 @@ function getHeader($ehAbertura = false){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function focaODS(){
+            var pos = $('.ods-container').position().top;
+            $('html, body').stop().animate({scrollTop:pos}, '1000', 'swing');
+        }
+    </script>
 </head>
 <body>
     <div class="row top-menu-background top-menu-height">
@@ -50,8 +57,8 @@ function getHeader($ehAbertura = false){
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <a target="_blank" href="www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD">
-                    <img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
+                <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD">
+                    <img src="images/pnud_logo_white_bg.png" style="z-index:100;position:absolute;left:60px;">
                 </a>
             </div>
 
@@ -88,7 +95,7 @@ function getHeader($ehAbertura = false){
             <!-- logo ods -->
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <a href="<?php echo $home; ?>">
+                    <a title="Página de abertura" href="<?php echo $home; ?>">
                         <img src="images/ods_logo.png" style="margin-top:-30px;">
                     </a>
                 </div>
@@ -168,10 +175,7 @@ function getContent(){
         <!-- geo search row -->
         <div class="row" style="padding-top:30px;padding-bottom: 30px;">
             <div class="col-xs-12 col-xs-6 text-right" style="margin-top:8px;">
-						<span class="label label-primary"
-                              style="border-radius: 20px;padding:10px 20px;font-family:Arial, sans-serif;font-size:10pt;font-weight: 200;">
-                                  Ou pesquise a situação do Brasil ou de algum estado
-                        </span>
+						<span class="label label-primary" style="border-radius: 20px;padding:10px 20px;font-family:Arial, sans-serif;font-size:10pt;font-weight: 200;">Ou pesquise a situação do Brasil ou de algum estado</span>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4 text-left">
                 <div class="input-group">

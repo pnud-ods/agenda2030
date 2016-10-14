@@ -73,7 +73,7 @@ getHeader(true);
             <div class="row" style="margin:60px 0px;">
                 <div class="col-xs-12 text-center">
                     <span class="blue-customized-button">
-                        <a href="">Entenda melhor a Agenda 2030</a>
+                        <a title="A Agenda 2030" href="aagenda2030.php">Entenda melhor a Agenda 2030</a>
                     </span>
                 </div>
             </div>
@@ -96,9 +96,7 @@ getHeader(true);
                     <p>Os ODS são a primeira agenda universal do mundo para o desenvolvimento sustentável, e isso significa que todas as nações – desenvolvidas e em desenvolvimento – serão convidadas a agir em seus próprios países.
                     </p>
                     <p style="padding-top:60px;">
-                        <span class="blue-customized-button">
-                            Comece selecionando um ODS aqui
-                        </span>
+                        <span class="blue-customized-button"><a title="Ir para os ODS" onclick="focaODS();">Comece selecionando um ODS</a></span>
                     </p>
                 </span>
             </div>
