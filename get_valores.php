@@ -4,27 +4,26 @@ $id_ind   = $_REQUEST['i_i'];
 $ods      = $_REQUEST['o'];
 $id_meta  = $_REQUEST['i_m'];
 $num_meta = $_REQUEST['n_m'];
+$simples  = $_REQUEST['s'];
 $array = array();
 $array['estrutura']  = '<table style="width:100%;">';
 $array['estrutura'] .= '<tbody>';
-$array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;">';
-$array['estrutura'] .= '<td style="font-size:16pt;padding:5px 10px;">';
-$array['estrutura'] .= '<h3>';
-$array['estrutura'] .= "<a title=\"Voltar para os Indicadores\" style=\"color:#333333;\" onclick=\"clickMeta(null, $ods, $id_meta, '$num_meta');\">";
-$array['estrutura'] .= "<span class=\"glyphicon glyphicon-menu-left main_color_$ods\"></span> Voltar para os Indicadores da Meta $num_meta";
-$array['estrutura'] .= '</a>';
-$array['estrutura'] .= '</h3>';
-$array['estrutura'] .= '</td>';
-$array['estrutura'] .= '</tr>';
+if( !isset($simples) ){
+    $array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;">';
+    $array['estrutura'] .= '<td style="font-size:16pt;padding:5px 10px;">';
+    $array['estrutura'] .= '<h3>';
+    $array['estrutura'] .= "<a title=\"Voltar para os Indicadores\" style=\"color:#333333;\" onclick=\"clickMeta(null, $ods, $id_meta, '$num_meta');\">";
+    $array['estrutura'] .= "<span class=\"glyphicon glyphicon-menu-left main_color_$ods\"></span> Voltar para os Indicadores da Meta $num_meta";
+    $array['estrutura'] .= '</a>';
+    $array['estrutura'] .= '</h3>';
+    $array['estrutura'] .= '</td>';
+    $array['estrutura'] .= '</tr>';
+}
 $array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;"><td>';
 $sql = "select di.nom_indicador
           from $NAME_DW.dim_indicador di
          where di.seq_dim_indicador = $id_ind";
 $result = $conn->query($sql);
-
-
-
-
 
 $row = $result->fetch_assoc();
 $array['estrutura'] .= "<div class=\"rot_indicador\">Indicador: {$row['nom_indicador']}</div>";

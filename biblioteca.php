@@ -4,7 +4,6 @@ include_once 'conectar.php';
 
 getHeader();
 ?>
-
     <div class="row" style="background-color:#eeeeee">
         <div class="col-xs-10 col-xs-offset-1">
             <div style="padding-bottom:60px;">

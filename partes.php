@@ -2,14 +2,14 @@
 $opcoes_menu = array(
     array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => 'A Agenda 2030', 'side' => 'left'),
     array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => 'Consultar Indicador', 'side' => 'left'),
-    array('label' => 'Biblioteca', 'link' => 'biblioteca.php', 'title' => '', 'side' => 'left'),
+    array('label' => 'Biblioteca', 'link' => 'biblioteca.php', 'title' => 'Biblioteca de publicações', 'side' => 'left'),
     //array('label' => 'Quem Somos', 'link' => 'quem_somos.php', 'title' => '', 'side' => ''),
-    array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
-    array('label' => 'Eventos', 'link' => 'eventos.php', 'title' => '', 'side' => 'right'),
-    array('label' => 'Contato', 'link' => 'contato.php', 'title' => '', 'side' => 'right')
+    array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => 'Perguntas frequentes', 'side' => 'right'),
+    array('label' => 'Eventos', 'link' => 'eventos.php', 'title' => 'Calendário de eventos', 'side' => 'right'),
+    array('label' => 'Contato', 'link' => 'contato.php', 'title' => 'Entre em contato', 'side' => 'right')
 );
 
-function getHeader($ehAbertura = false){
+function getHeader($ehAbertura = false, $mostraODSs = true){
     global $opcoes_menu;
     $home = 'site.php';
 ?>
@@ -107,7 +107,8 @@ function getHeader($ehAbertura = false){
                 <div class="col-xs-10 col-xs-offset-1 text-center" style="padding:0;">
                     <h2 class="title-font text-white-shadow">Plataforma Agenda 2030</h2>
                     <?php if($ehAbertura){ ?>
-                    <p class="subtitle-font" style="padding-top:20px;font-size:16px;">Existe um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável: A Agenda 2030 e seus Objetivos de Desenvolvimento Sustentável (ODS). A plataforma Agenda 2030 provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações globais e nacionais orientadas ao cumprimento desse plano de ação, assinado por todos os membros das Nações Unidas. Um 2030 socialmente justo, economicamente inclusivo e ambientalmente sustentável depende de transparência, da sua colaboração e de nossa ação transformadora.<br/>Junte-se à nós!</p>
+                    <p class="subtitle-font" style="padding-top:20px;font-size:16px;">A Agenda 2030 é um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável. A Plataforma provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações orientadas ao cumprimento dessa Agenda.</p>
+                        <!--Existe um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável: A Agenda 2030 e seus Objetivos de Desenvolvimento Sustentável (ODS). A plataforma Agenda 2030 provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações globais e nacionais orientadas ao cumprimento desse plano de ação, assinado por todos os membros das Nações Unidas. Um 2030 socialmente justo, economicamente inclusivo e ambientalmente sustentável depende de transparência, da sua colaboração e de nossa ação transformadora.<br/>Junte-se à nós!-->
                     <?php } ?>
                 </div>
             </div>
@@ -138,14 +139,16 @@ function getHeader($ehAbertura = false){
         </div>
     </div>
 
-    <?php if($ehAbertura){ ?>
-    <div class="row" style="min-height:40px;background-color: #408dcc;">
-        <div class="col-xs-12 text-center font-white">
-            <h4 style="font-weight:300;line-height:40px;">Para saber mais, selecione um ODS abaixo:</h4>
+    <?php if($ehAbertura and $mostraODSs){ ?>
+        <div class="row" style="min-height:40px;background-color: #408dcc;">
+            <div class="col-xs-12 text-center font-white">
+                <h4 style="font-weight:300;line-height:40px;">Para saber mais, selecione um ODS abaixo:</h4>
+            </div>
         </div>
-    </div>
-    <?php } ?>
-
+    <?php
+        }
+        if($mostraODSs){
+    ?>
     <!-- ./header -->
     <!-- ods container -->
     <div class="ods-container">
@@ -171,6 +174,7 @@ function getHeader($ehAbertura = false){
         <div class="clear"></div>
     </div>
 <?php
+    }
 }
 
 function getContent(){

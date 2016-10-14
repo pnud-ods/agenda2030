@@ -78,6 +78,7 @@ button, a, a:active, a:focus{
 	color:#1c65a3;
 	text-shadow: 0px 0px;
 }
+
 .ods-container{
     background-color:#f6f6f6;
     width:100%;
@@ -101,14 +102,13 @@ button, a, a:active, a:focus{
 	margin-right:-90px;
 }
 
-.about-agenda-text {
-	display:flex;
-	min-height:170px;
-	font-size:16pt;
-	color:#797979;
+.about-agenda-text{
+    color: #545454;
+    font-size: 12pt;
+    text-align: justify;
 }
 
-.about-ods-text {
+.about-ods-text{
 	display:flex;
 	min-height:410px;
 	font-size:14pt;
