@@ -88,6 +88,12 @@ ul {list-style-type: none;}
     font-weight: bold;
 }
 
+.agenda-events-label-date {
+    color:#ff9d1e;
+    font-size:10pt;
+    font-weight: bold;
+}
+
 .border-botton-events-list {
     border-bottom: 4px solid #798a94;
     position: absolute;
