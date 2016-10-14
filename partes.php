@@ -11,7 +11,7 @@ $opcoes_menu = array(
 
 function getHeader($ehAbertura = false, $mostraODSs = true){
     global $opcoes_menu;
-    $home = 'site.php';
+    $home = '.';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
