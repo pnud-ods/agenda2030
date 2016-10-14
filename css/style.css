@@ -6,7 +6,8 @@ button, a, a:active, a:focus{
     outline:none;
     cursor:pointer;
 }
-a, a:active, a:hover{
+.header a, .header a:active, .header a:hover,
+.footer a, .footer a:active, .footer a:hover{
     color:#a0abb5;
 }
 .blue-customized-button a, .blue-customized-button a:hover,

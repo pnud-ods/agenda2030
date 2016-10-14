@@ -1,10 +1,10 @@
 <?php
 $opcoes_menu = array(
-    array('label' => 'A Agenda 2030', 'link' => 'agenda.php', 'title' => '', 'side' => 'left'),
+    array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => '', 'side' => 'left'),
     array('label' => 'Biblioteca', 'link' => 'publicacoes.php', 'title' => '', 'side' => 'left'),
     array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => '', 'side' => ''),
     //array('label' => 'Quem Somos', 'link' => 'quem_somos.php', 'title' => '', 'side' => ''),
-    array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
+    array('label' => 'Dúvidas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
     array('label' => 'Eventos', 'link' => 'eventos.php', 'title' => '', 'side' => 'right'),
     array('label' => 'Contato', 'link' => 'contato.php', 'title' => '', 'side' => 'right')
 );
@@ -109,7 +109,7 @@ function getHeader($ehAbertura = false){
             <?php if($ehAbertura){ ?>
             <div class="row destaque">
                 <div class="col-xs-4 text-center">
-                    <a href="agenda.php">
+                    <a href="aagenda2030.php">
                         <img class="img-circle" src="images/info_icon_header.png" alt="" width="110" height="110">
                         <h2 class="subtitle-font header-icons">Conheça mais sobre a Agenda 2030 e os ODS</h2>
                     </a>
@@ -164,33 +164,27 @@ function getContent(){
 						<span class="label label-primary"
                               style="border-radius: 20px;padding:10px 20px;font-family:Arial, sans-serif;font-size:10pt;font-weight: 200;">
                                   Ou pesquise a situação do Brasil ou de algum estado
-    </span>
+                        </span>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4 text-left">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Pesquisa">
-					      	<span class="input-group-btn">
-					        	<button class="btn btn-default" type="button">Estado <span class="glyphicon glyphicon-triangle-bottom" style="font-size:8pt;"></span>
-                                </button>
-					      	</span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Estado <span class="glyphicon glyphicon-triangle-bottom" style="font-size:8pt;"></span>
+                        </button>
+                    </span>
                 </div>
             </div>
         </div>
         <!-- ./geo search row -->
-
-
-    <!-- ./ods container -->
-
     </div>
-
-    <!-- ./info data container -->
 <?php
 }
 
 function getFooter(){
     global $opcoes_menu;
 ?>
-    <div class="row" style="background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
+    <div class="footer row" style="background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
         <div class="col-xs-5 col-xs-offset-1">
             <p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
                 Plataforma Agenda 2030
