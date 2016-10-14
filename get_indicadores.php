@@ -17,7 +17,7 @@ $num_meta = $_REQUEST['n_m'];
 
 <?php
 //Busca os indicadores de uma meta
-$sql = "select distinct di.nom_indicador
+$sql = "select di.seq_dim_indicador, di.nom_indicador
           from $NAME_DW.dim_indicador di
          where di.seq_dim_meta = $id_meta
          order by di.nom_indicador";
@@ -26,7 +26,7 @@ while( $row = $result->fetch_assoc() ){
     echo '<tr style="border-top: 1px solid #cfcfcf;">';
     echo "<td style=\"padding:20px 10px;\" class=\"metas-indicadores-text-color\">{$row['nom_indicador']}</td>";
     echo '<td class="text-center">';
-    echo "<span class=\"main_background_color_$ods veja_mais\">Veja mais</span>";
+    echo "<span class=\"main_background_color_$ods veja_mais\" onclick=\"clickIndicador({$row['seq_dim_indicador']}, $ods, $id_meta, '$num_meta');\">Veja mais</span>";
     echo '</td>';
     echo '</tr>' . "\n";
 }

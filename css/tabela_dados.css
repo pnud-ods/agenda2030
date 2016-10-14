@@ -1,0 +1,20 @@
+.dados th{
+    font-size:10px;
+    font-weight:normal;
+    text-align:center;
+}
+.dados tbody td{
+    padding:5px 10px;
+    border-right:1px solid;
+    text-align:center;
+    font-size:12px;
+}
+.dados td.rot{
+    text-align:left!important;
+}
+.dados td.tp{
+    white-space:pre;
+}
+.dados tbody tr td:last-child{
+    border-right:0;
+}

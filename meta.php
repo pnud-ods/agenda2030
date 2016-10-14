@@ -13,8 +13,18 @@ $row = $result->fetch_assoc();
 
 getHeader();
 ?>
+<link href="css/tabela_dados.css" rel="stylesheet" type="text/css">
+<link href="js/c3-0.4.11/c3.css" rel="stylesheet" type="text/css">
+<script src="js/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/c3-0.4.11/c3.min.js"></script>
+<script src="js/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="js/grafico.js"></script>
 <script type="text/javascript">
-    function clickMeta(o, i_m, n_m){
+    function clickMeta(obj, o, i_m, n_m) {
+        if( obj !== undefined ){
+            $('.ativo').removeClass('ativo');
+            $(obj).parent().parent().addClass('ativo');
+        }
         $.ajax({
             url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
         }).done(function(retorno){
@@ -22,6 +32,17 @@ getHeader();
             var indicadores = $('#indicadores');
             indicadores.css('width', '60%');
             indicadores.html(retorno);
+        });
+    }
+
+    function clickIndicador(i_i, o, i_m, n_m){
+        $.ajax({
+            url: 'get_valores.php?i_i=' + i_i + '&o=' + o + '&i_m=' + i_m + '&n_m=' + n_m,
+            dataType: 'json'
+        }).done(function(retorno){
+            $('#indicadores').html(retorno.estrutura);
+            $('#tabela').html(retorno.tabela);
+            showGrafico(retorno.dados);
         });
     }
 </script>
@@ -91,7 +112,7 @@ getHeader();
                                         while($row = $result->fetch_assoc()){
                                             echo '<tr style="border:1px solid #cfcfcf;">';
                                             echo '<td class="meta">';
-                                            echo "<a title=\"Exibir indicadores da meta\" onclick=\"clickMeta($ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";
+                                            echo "<a title=\"Exibir indicadores da meta\" onclick=\"clickMeta(this, $ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";
                                             echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span>";
                                             echo " {$row['dsc_meta']}</a>";
                                             echo '</td>';

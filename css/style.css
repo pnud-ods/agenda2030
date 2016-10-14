@@ -146,11 +146,18 @@ td.meta a{
     display:block;
     color:inherit;
 }
+tr.ativo{
+    background-color: #f5f5f5;
+}
 .veja_mais{
     padding:5px 10px;
     color:#fff;
     font-size:10pt;
     border-radius:10px;
+    cursor:pointer;
+}
+.rot_indicador{
+    margin:10px 15px;
 }
 .referencias{
     font-size:10pt;
