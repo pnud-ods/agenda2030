@@ -4,6 +4,7 @@
 }
 button, a, a:active, a:focus{
     outline:none;
+    cursor:pointer;
 }
 a, a:active, a:hover{
     color:#a0abb5;
