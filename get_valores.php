@@ -21,6 +21,11 @@ $sql = "select di.nom_indicador
           from $NAME_DW.dim_indicador di
          where di.seq_dim_indicador = $id_ind";
 $result = $conn->query($sql);
+
+
+
+
+
 $row = $result->fetch_assoc();
 $array['estrutura'] .= "<div class=\"rot_indicador\">Indicador: {$row['nom_indicador']}</div>";
 $array['estrutura'] .= '<div id="grafico"></div>';
