@@ -5,7 +5,7 @@ $mes = $_REQUEST['mes'];
 $retorno = array();
 
 //Busca os eventos no banco pela data de início
-$sql = "select day(dat_inicio) as dia, e.dat_inicio, e.nom_evento
+$sql = "select day(dat_inicio) as dia, e.dat_inicio, e.nom_evento, e.dsc_link
           from evento e
          where year(e.dat_inicio) = $ano
            and month(e.dat_inicio) = $mes
@@ -30,10 +30,10 @@ for($i = 1; $i <= $quant_dias; $i++){
     else{
         $retorno['calendario'] .= "<li><span class=\"active\">$i</span></li>";
         while($row['dia'] == $i){
-            $retorno['eventos'] .= '<div class="row" style="margin-top:50px;">';
-            $retorno['eventos'] .= '<div class="col-xs-8 col-xs-offset-2 text-center">';
+            $retorno['eventos'] .= '<div class="row" style="margin-top:40px;">';
+            $retorno['eventos'] .= '<div class="col-xs-10 col-xs-offset-1 text-center">';
             $retorno['eventos'] .= '<span class="agenda-events-label">';
-            $retorno['eventos'] .= $row['nom_evento'];
+            $retorno['eventos'] .= "<a style=\"color:inherit;\" title=\"Ir para página do evento\" target=\"_blank\" href=\"{$row['dsc_link']}\">{$row['nom_evento']}</a>";
             $retorno['eventos'] .= '</span>';
             $retorno['eventos'] .= '<div class="border-botton-events-list"></div>';
             $retorno['eventos'] .= '</div>';

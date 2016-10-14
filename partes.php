@@ -2,7 +2,7 @@
 $opcoes_menu = array(
     array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => 'A Agenda 2030', 'side' => 'left'),
     array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => 'Consultar Indicador', 'side' => 'left'),
-    array('label' => 'Biblioteca', 'link' => 'publicacoes.php', 'title' => '', 'side' => 'left'),
+    array('label' => 'Biblioteca', 'link' => 'biblioteca.php', 'title' => '', 'side' => 'left'),
     //array('label' => 'Quem Somos', 'link' => 'quem_somos.php', 'title' => '', 'side' => ''),
     array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
     array('label' => 'Eventos', 'link' => 'eventos.php', 'title' => '', 'side' => 'right'),
@@ -163,6 +163,9 @@ function getHeader($ehAbertura = false){
                 }
                 echo "<a href=\"$link\"><img src=\"images/ods_icons/$numero.png\" alt=\"$alt\"></a>";
                 echo '</div>' . "\n";
+                if( $i == 9 ){
+                    echo '<br/>';
+                }
             }
         ?>
         <div class="clear"></div>
@@ -209,8 +212,8 @@ function getFooter(){
             </ul>
         </div>
         <div class="col-xs-6 text-right">
-            <div style="display: inline-block;">
-                <img src="images/pnud_logo_no_bg.png" style="padding:30px;">
+            <div style="display:inline-block;">
+                <img src="images/pnud_logo_white_tg.png" style="padding:30px;">
                 <img src="images/ipea_logo_no_bg.png" style="padding:30px;">
             </div>
         </div>
