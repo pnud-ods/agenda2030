@@ -136,6 +136,9 @@ button, a, a:active, a:focus{
     font-size:10pt;
 }
 
+img.odm{
+   margin:2px;
+}
 .referencias{
     font-size:10pt;
     margin-top:10px;

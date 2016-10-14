@@ -1,13 +1,21 @@
 <?php
 include_once 'partes.php';
+include_once 'conectar.php';
 $ods = $_REQUEST['ods'];
+$num_ods = str_pad($ods, 2, '0', STR_PAD_LEFT);
+
+//Busca os dados do ODS
+$sql = "select do.nom_ods, do.dsc_ods, do.dsc_resumo_ods, do.dsc_odm_relacionado
+          from $NAME_DW.dim_ods do
+         where do.seq_dim_ods = $ods";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
 getHeader();
-getBandejaODS();
 ?>
     <!-- info data container -->
     <div class="row">
         <div class="col-xs-12">
-
             <!-- metas container -->
             <div>
                 <div class="row">
@@ -15,13 +23,12 @@ getBandejaODS();
                         <table style="width:100%;">
                             <tr style="padding:10px;" >
                                 <td style="">
-                                    <img class="img-responsive" src="images/ods_icons/05.png" alt="" width="145" height="145">
+                                    <img class="img-responsive" src="images/ods_icons/<?php echo $num_ods; ?>.png" alt="" width="145" height="145">
                                 </td>
-                                <td style="padding:20px 10px 0px 0px;vertical-align: top;">
-
-                                    <p class="main_color_5 title-font" style="font-size:22pt;">Objetivo 5.</p>
-                                    <p class="main_color_5 title-font" style="font-size:26pt;">Igualdade de Gênero</p>
-                                    <p style="color:#6c6c6c;font-size:18pt;font-weight:200;">Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas </p>
+                                <td style="padding:20px 10px 0px 0px;vertical-align:top;">
+                                    <p class="main_color_<?php echo $ods; ?> title-font" style="font-size:22pt;">Objetivo <?php echo $ods; ?>.</p>
+                                    <p class="main_color_<?php echo $ods; ?> title-font" style="font-size:26pt;"><?php echo $row['nom_ods']; ?></p>
+                                    <p style="color:#6c6c6c;font-size:18pt;font-weight:200;"><?php echo $row['dsc_ods']; ?></p>
                                 </td>
                                 <td style="max-width:220px;">
                                     <div >
@@ -32,11 +39,12 @@ getBandejaODS();
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <img src="images/odm_icons/odm_1.png" style="width:50px;">
-                                                <img src="images/odm_icons/odm_3.png" style="width:50px;">
-                                                <img src="images/odm_icons/odm_4.png" style="width:50px;">
-                                                <img src="images/odm_icons/odm_6.png" style="width:50px;">
-
+                                                <?php
+                                                    $odms = explode(',', $row['dsc_odm_relacionado']);
+                                                    foreach($odms as $odm){
+                                                        echo "<img class=\"odm\" src=\"images/odm_icons/odm_$odm.png\" style=\"width:50px;\">";
+                                                    }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +55,7 @@ getBandejaODS();
                 </div>
                 <div class="row">
                     <div class="col-xs-12" style="padding:0px 70px 20px 60px;">
-                        <p style="color:#6c6c6c;font-size:12pt;font-weight:200;">O Brasil avançou muito nos últimos anos no que se refere à promoção da igualdade de gê- nero e ao empoderamento das mulheres e meninas nos últimos vinte anos, tal como apontam análises relacionadas com o processo de celebração do vigésimo aniversário da Declaração e Plataforma de Ação de Pequim. Grande parte desse avanço se dá pela institucionalização das políticas para as mulheres em âmbito governamental, tanto na esfera nacional quanto nas subnacionais. </p>
+                        <p style="color:#6c6c6c;font-size:12pt;font-weight:200;"><?php echo $row['dsc_resumo_ods']; ?></p>
                     </div>
                 </div>
                 <div class="row" style="margin-bottom: 90px;">
@@ -55,105 +63,31 @@ getBandejaODS();
                         <table style="border: 1px solid #cfcfcf;">
                             <tr style="background-color:#f5f5f5;">
                                 <td style="padding-left:40px;">
-                                    <h2 class="main_color_5">Metas do Objetivo 5</h2>
+                                    <h2 class="main_color_<?php echo $ods; ?>">Metas do Objetivo <?php echo $ods; ?></h2>
                                 </td>
                                 <td></td>
                             </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.1</span>
-                                    Acabar com todas as formas de discriminação contra todas as mulheres e meninas em toda parte
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.2</span>
-                                    Eliminar todas as formas de violência contra todas as mulheres e meninas nas esferas públicas e privadas, incluindo o trá co e exploração sexual e de outros tipos
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.3</span>
-                                    Eliminar todas as práticas nocivas, como os casamentos prematuros, forçados e de crianças e mutilações genitais femininas
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.4</span>
-                                    Reconhecer e valorizar o trabalho de assistência e doméstico não remunerado, por meio da disponibilização de serviços públicos, infraestrutura e políticas de proteção social, bem como a promoção da responsabilidade compartilhada dentro do lar e da família, conforme os contextos nacionais
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.5</span>
-                                    Garantir a participação plena e efetiva das mulheres e a igualdade de oportunidades para a liderança em todos os níveis de tomada de decisão na vida política, econômica e pública
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.6</span>
-                                    Assegurar o acesso universal à saúde sexual e reprodutiva e os direitos reprodutivos, como acordado em conformidade com o Programa de Ação da Conferência Internacional sobre População e Desenvolvimento e com a Plataforma de Ação de Pequim e os documentos resultantes de suas conferências de revisãos
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.a</span>
-                                    Empreender reformas para dar às mulheres direitos iguais aos recursos econômicos, bem como o acesso a propriedade e controle sobre a terra e outras formas de propriedade, serviços  nanceiros, herança e os recursos naturais, de acordo com as leis nacionais
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.b</span>
-                                    Aumentar o uso de tecnologias de base, em particular as tecnologias de informação e comunicação, para promover o empoderamento das mulheres
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-                            <tr style="border: 1px solid #cfcfcf;">
-                                <td style="padding:20px 20px 20px 40px;">
-                                    <span class="main_color_5">5.c</span>
-                                    Adotar e fortalecer políticas sólidas e legislação aplicável para a promoção da igualdade de gênero e o empoderamento de todas as mulheres e meninas, em todos os níveis
-                                </td>
-                                <td  style="padding:20px;">
-                                    <span class="glyphicon glyphicon-chevron-right main_color_5"></span>
-                                </td>
-                            </tr>
-
-
-
+                            <?php
+                                $sql = "select dm.num_meta, dm.dsc_meta
+                                          from $NAME_DW.dim_meta dm
+                                         where dm.seq_dim_ods = $ods";
+                                $result = $conn->query($sql);
+                                while($row = $result->fetch_assoc()){
+                                    echo '<tr style="border:1px solid #cfcfcf;">';
+                                    echo '<td style="padding:20px 20px 20px 40px;">';
+                                    echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span> {$row['dsc_meta']}";
+                                    echo '</td>';
+                                    echo '<td style="padding:20px;">';
+                                    echo "<span class=\"glyphicon glyphicon-chevron-right main_color_$ods\"></span>";
+                                    echo '</td>';
+                                    echo '</tr>' . "\n";
+                                }
+                            ?>
                         </table>
-
                     </div>
                 </div>
             </div>
-            <!-- ./metas container -->
-
         </div>
     </div>
-
-    <!-- ./info data container -->
 <?php
 getFooter();

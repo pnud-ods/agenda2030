@@ -5,7 +5,8 @@ $mes = $_REQUEST['mes'];
 $retorno = array();
 
 //Busca os eventos no banco pela data de início
-$sql = "select day(dat_inicio) as dia, e.dat_inicio, e.nom_evento from evento e
+$sql = "select day(dat_inicio) as dia, e.dat_inicio, e.nom_evento
+          from evento e
          where year(e.dat_inicio) = $ano
            and month(e.dat_inicio) = $mes
          order by e.dat_inicio";
