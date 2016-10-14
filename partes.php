@@ -1,10 +1,10 @@
 <?php
 $opcoes_menu = array(
     array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => '', 'side' => 'left'),
+    array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => '', 'side' => 'left'),
     array('label' => 'Biblioteca', 'link' => 'publicacoes.php', 'title' => '', 'side' => 'left'),
-    array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => '', 'side' => ''),
     //array('label' => 'Quem Somos', 'link' => 'quem_somos.php', 'title' => '', 'side' => ''),
-    array('label' => 'Dúvidas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
+    array('label' => 'Perguntas Frequentes', 'link' => 'faq.php', 'title' => '', 'side' => 'right'),
     array('label' => 'Eventos', 'link' => 'eventos.php', 'title' => '', 'side' => 'right'),
     array('label' => 'Contato', 'link' => 'contato.php', 'title' => '', 'side' => 'right')
 );
@@ -50,7 +50,9 @@ function getHeader($ehAbertura = false){
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
+                <a target="_blank" href="www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD">
+                    <img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
+                </a>
             </div>
 
             <div class="collapse navbar-collapse">
@@ -85,22 +87,20 @@ function getHeader($ehAbertura = false){
         <div class="col-xs-12">
             <!-- logo ods -->
             <div class="row">
-                <a href="<?php echo $home; ?>">
-                    <div class="col-xs-12 text-center">
+                <div class="col-xs-12 text-center">
+                    <a href="<?php echo $home; ?>">
                         <img src="images/ods_logo.png" style="margin-top:-30px;">
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
             <!-- ./logo ods -->
 
             <!-- title -->
             <div class="row">
-                <div class="col-xs-6 col-xs-offset-3 text-center">
+                <div class="col-xs-10 col-xs-offset-1 text-center" style="padding:0;">
                     <h2 class="title-font text-white-shadow">Plataforma Agenda 2030</h2>
                     <?php if($ehAbertura){ ?>
-                    <p class="subtitle-font">
-                        Até 2030, acompanharemos a evolução das metas e indicadoresdos ODS - Objetivos do Desenvolvimento Sustentável
-                    </p>
+                    <p class="subtitle-font" style="padding-top:20px;font-size:16px;">Existe um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável: A Agenda 2030 e seus Objetivos de Desenvolvimento Sustentável (ODS). A plataforma Agenda 2030 provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações globais e nacionais orientadas ao cumprimento desse plano de ação, assinado por todos os membros das Nações Unidas. Um 2030 socialmente justo, economicamente inclusivo e ambientalmente sustentável depende de transparência, da sua colaboração e de nossa ação transformadora.<br/>Junte-se à nós!</p>
                     <?php } ?>
                 </div>
             </div>
@@ -146,8 +146,15 @@ function getHeader($ehAbertura = false){
             for($i = 1; $i <= 18; $i++){
                 echo '<div class="ods-logo-container">';
                 $numero = str_pad($i, 2, '0', STR_PAD_LEFT);
-                $alt = ($i < 18) ? "ODS $i" : 'Logo';
-                echo "<a href=\"meta.php?ods=$i\"><img src=\"images/ods_icons/$numero.png\" alt=\"$alt\"></a>";
+                if( $i < 18 ){
+                    $alt = "ODS $i";
+                    $link = "meta.php?ods=$i";
+                }
+                else{
+                    $alt = 'Logo';
+                    $link = "consulta.php";
+                }
+                echo "<a href=\"$link\"><img src=\"images/ods_icons/$numero.png\" alt=\"$alt\"></a>";
                 echo '</div>' . "\n";
             }
         ?>

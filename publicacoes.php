@@ -10,7 +10,7 @@ getHeader();
             <div style="padding-bottom:60px;">
                 <div class="row" style="padding:40px;">
                     <div class="col-xs-12 text-center">
-                        <h1 style="color:#187cad;">Publicações - ODS e Agenda 2030</h1>
+                        <h1 style="color:#187cad;">Biblioteca - ODS e Agenda 2030</h1>
                         <p>Veja abaixo algumas publicações que podem te ajudar a entender melhor os ODS e a Agenda 2030</p>
                     </div>
                 </div>
