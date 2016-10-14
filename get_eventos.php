@@ -3,20 +3,24 @@ include_once 'conectar.php';
 $ano = $_REQUEST['ano'];
 $mes = $_REQUEST['mes'];
 $retorno = array();
+
+//Busca os eventos no banco pela data de início
 $sql = "select day(dat_inicio) as dia, e.dat_inicio, e.nom_evento from evento e
          where year(e.dat_inicio) = $ano
            and month(e.dat_inicio) = $mes
          order by e.dat_inicio";
 $result = $conn->query($sql);
-$retorno['eventos'] = '';
 
+//Exibe as células vazias do começo do mês
 $retorno['calendario'] = '';
 $primeiro_dia_semana = date("w", strtotime("$ano/$mes/01") ) - 1;
 for($i = 1; $i <= $primeiro_dia_semana; $i++){
     $retorno['calendario'] .= "<li></li>";
 }
 
+//Exibe os dias do mês consultado verificando se tem evento
 $quant_dias = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+$retorno['eventos'] = '';
 $row = $result->fetch_assoc();
 for($i = 1; $i <= $quant_dias; $i++){
     if($row['dia'] != $i){
@@ -37,6 +41,8 @@ for($i = 1; $i <= $quant_dias; $i++){
         }
     }
 }
+
+//Retorna o ano e mês da consulta
 $retorno['ano'] = $ano;
 switch($mes){
     case 1:
