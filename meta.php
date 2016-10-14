@@ -13,6 +13,18 @@ $row = $result->fetch_assoc();
 
 getHeader();
 ?>
+<script type="text/javascript">
+    function clickMeta(o, i_m, n_m){
+        $.ajax({
+            url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
+        }).done(function(retorno){
+            $('#metas').css('width', '40%');
+            var indicadores = $('#indicadores');
+            indicadores.css('width', '60%');
+            indicadores.html(retorno);
+        });
+    }
+</script>
     <!-- info data container -->
     <div class="row">
         <div class="col-xs-12">
@@ -67,22 +79,34 @@ getHeader();
                                 </td>
                                 <td></td>
                             </tr>
-                            <?php
-                                $sql = "select dm.num_meta, dm.dsc_meta
-                                          from $NAME_DW.dim_meta dm
-                                         where dm.seq_dim_ods = $ods";
-                                $result = $conn->query($sql);
-                                while($row = $result->fetch_assoc()){
-                                    echo '<tr style="border:1px solid #cfcfcf;">';
-                                    echo '<td style="padding:20px 20px 20px 40px;">';
-                                    echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span> {$row['dsc_meta']}";
-                                    echo '</td>';
-                                    echo '<td style="padding:20px;">';
-                                    echo "<span class=\"glyphicon glyphicon-chevron-right main_color_$ods\"></span>";
-                                    echo '</td>';
-                                    echo '</tr>' . "\n";
-                                }
-                            ?>
+
+                            <td id="metas" style="width:100%;">
+                                <table>
+                                    <tbody>
+                                    <?php
+                                        $sql = "select dm.seq_dim_meta, dm.num_meta, dm.dsc_meta
+                                                  from $NAME_DW.dim_meta dm
+                                                 where dm.seq_dim_ods = $ods";
+                                        $result = $conn->query($sql);
+                                        while($row = $result->fetch_assoc()){
+                                            echo '<tr style="border:1px solid #cfcfcf;">';
+                                            echo '<td class="meta">';
+                                            echo "<a title=\"Exibir indicadores da meta\" onclick=\"clickMeta($ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";
+                                            echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span>";
+                                            echo " {$row['dsc_meta']}</a>";
+                                            echo '</td>';
+                                            echo '<td style="padding:20px;">';
+                                            echo "<span class=\"glyphicon glyphicon-chevron-right main_color_$ods\"></span>";
+                                            echo '</td>';
+                                            echo '</tr>' . "\n";
+                                        }
+                                    ?>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td id="indicadores" style="width:0%;vertical-align: top;">
+                            </td>
                         </table>
                     </div>
                 </div>

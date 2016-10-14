@@ -139,6 +139,19 @@ button, a, a:active, a:focus{
 img.odm{
    margin:2px;
 }
+td.meta{
+    padding:20px 20px 20px 40px;
+}
+td.meta a{
+    display:block;
+    color:inherit;
+}
+.veja_mais{
+    padding:5px 10px;
+    color:#fff;
+    font-size:10pt;
+    border-radius:10px;
+}
 .referencias{
     font-size:10pt;
     margin-top:10px;
