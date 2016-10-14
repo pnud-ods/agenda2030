@@ -1,7 +1,5 @@
 <?php
-$NOM_SISTEMA = 'Catálogo de Dados';
-$NOM_PROJETO = 'Sala de Situação da Saúde';
-$NOM_PAGINA  = null;
+include_once 'config.php';
 
 function getHead(){
 global $NOM_SISTEMA;

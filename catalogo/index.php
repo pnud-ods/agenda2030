@@ -1,7 +1,7 @@
 <?php
 $VER_LOGIN = true;
 include_once 'play.php';
-include_once 'conectar.php';
+include_once 'config.php';
 getInicio();
 
 $ts = $_REQUEST['ts'];

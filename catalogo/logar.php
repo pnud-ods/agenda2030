@@ -18,7 +18,7 @@ if( isset($acao) && $acao == 'Entrar'){
         echo 'Faltam dados.';
     }
     else{
-        include_once 'conectar.php';
+        include_once 'config.php';
         $sql = "select cu.id_usuario,
                        cu.nom_usuario
                   from $NAME_DB.cat_usuario cu

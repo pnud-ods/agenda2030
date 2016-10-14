@@ -1,7 +1,7 @@
 <?php
 $VER_LOGIN = true;
 include_once '../play.php';
-include_once '../conectar.php';
+include_once '../config.php';
 $array = array();
 $array['status'] = 'ok';
 $tabela = $_REQUEST['t'];
