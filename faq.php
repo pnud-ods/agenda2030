@@ -12,9 +12,7 @@ getHeader();
                 <div class="row" style="padding:40px;paddin">
                     <div class="col-xs-12 text-center">
                         <h1 style="color:#187cad;">Ficou com alguma dúvida?</h1>
-                        <p>
-                            Veja abaixo as perguntas mais frequentes
-                        </p>
+                        <p>Veja abaixo as perguntas mais frequentes</p>
                     </div>
                 </div>
                 <div>

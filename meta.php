@@ -102,12 +102,13 @@ getHeader();
                             </tr>
 
                             <td id="metas" style="width:100%;">
-                                <table>
+                                <table style="width:100%;">
                                     <tbody>
                                     <?php
                                         $sql = "select dm.seq_dim_meta, dm.num_meta, dm.dsc_meta
                                                   from $NAME_DW.dim_meta dm
-                                                 where dm.seq_dim_ods = $ods";
+                                                 where dm.seq_dim_ods = $ods
+                                                 order by dm.num_meta";
                                         $result = $conn->query($sql);
                                         while($row = $result->fetch_assoc()){
                                             echo '<tr style="border:1px solid #cfcfcf;">';

@@ -9,8 +9,8 @@ getHeader();
             <div style="padding-bottom:60px;">
                 <div class="row" style="padding:40px;">
                     <div class="col-xs-12 text-center">
-                        <h1 style="color:#187cad;">Biblioteca - ODS e Agenda 2030</h1>
-                        <p>Veja abaixo algumas publicações que podem te ajudar a entender melhor os ODS e a Agenda 2030</p>
+                        <h1 style="color:#187cad;">Biblioteca - Agenda 2030 e ODS</h1>
+                        <p>Veja abaixo algumas publicações que podem te ajudar a entender melhor a Agenda 2030 e os ODS</p>
                     </div>
                 </div>
                 <div>
@@ -25,7 +25,7 @@ getHeader();
                               left join tag_publicacao tp on p.id_publicacao = tp.id_publicacao
                               left join tag t on tp.id_tag = t.id_tag
                              group by p.dsc_categoria, p.dsc_titulo, p.dsc_link, p.dsc_resumo, p.dsc_referencia
-                             order by p.dat_criacao desc";
+                             order by p.dat_criacao asc";
                     $result = $conn->query($sql);
                     while( $row = $result->fetch_assoc() ){
                         echo '<div class="row" style="border-top: 1px solid #cecece;padding: 30px 0px; 10px 0px;">';
@@ -40,6 +40,7 @@ getHeader();
                         echo '</a>';
                         echo '</p>';
                         echo "<p style=\"font-size:12pt;color:#444;\">{$row['dsc_resumo']}</p>";
+                        /*
                         echo '<div class="referencias">';
                         if( strlen($row['dsc_referencia']) > 0 ){
                             echo "<p>Referência: {$row['dsc_referencia']}</p>";
@@ -48,6 +49,7 @@ getHeader();
                             echo "<p>Tags: {$row['tags']}</p>";
                         }
                         echo '</div>';
+                        */
                         echo '</div>';
                         echo "</div>\n";
                     }

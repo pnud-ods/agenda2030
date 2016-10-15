@@ -2,9 +2,10 @@
     clear:both;
     outline:none;
 }
-button, a, a:active, a:focus{
+button, a, a:active, a:focus, a:hover{
     outline:none;
     cursor:pointer;
+    text-decoration:none;
 }
 .header a, .header a:active, .header a:hover,
 .footer a, .footer a:active, .footer a:hover{
@@ -103,11 +104,23 @@ button, a, a:active, a:focus{
 }
 
 .about-agenda-text{
-    color: #545454;
+    color: #545454; /*#797979*/
     font-size: 12pt;
     text-align: justify;
 }
-
+.about-agenda-text-home{
+    color: #545454;
+    display: flex;
+    font-size: 12pt;
+    text-align:left;
+    min-height: 170px;
+}
+.about-agenda-icon-background span{
+    margin:auto;
+}
+.about-agenda-text-home span{
+    margin:auto 0;
+}
 .about-ods-text{
 	display:flex;
 	min-height:410px;

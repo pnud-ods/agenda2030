@@ -22,6 +22,11 @@ $sql = "select di.seq_dim_indicador, di.nom_indicador
          where di.seq_dim_meta = $id_meta
          order by di.nom_indicador";
 $result = $conn->query($sql);
+if( $result->num_rows == 0 ){
+    echo '<tr style="border-top: 1px solid #cfcfcf;">';
+    echo "<td style=\"padding:20px 10px;\" class=\"metas-indicadores-text-color\">Não possui indicadores</td>";
+    echo '</tr>' . "\n";
+}
 while( $row = $result->fetch_assoc() ){
     echo '<tr style="border-top: 1px solid #cfcfcf;">';
     echo "<td style=\"padding:20px 10px;\" class=\"metas-indicadores-text-color\">{$row['nom_indicador']}</td>";

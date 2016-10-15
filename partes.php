@@ -47,6 +47,15 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
             $('html, body').stop().animate({scrollTop:pos}, '1000', 'swing');
         }
     </script>
+    <script type="text/javascript">
+        window._urq = window._urq || [];
+        _urq.push(['initSite', '72bd5dd6-2cac-4bf9-9c6f-33efed7a755f']);
+        (function() {
+            var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
+            ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
+        })();
+    </script>
 </head>
 <body>
     <div class="row top-menu-background top-menu-height">
@@ -108,7 +117,6 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
                     <h2 class="title-font text-white-shadow">Plataforma Agenda 2030</h2>
                     <?php if($ehAbertura){ ?>
                     <p class="subtitle-font" style="padding-top:20px;font-size:16px;">A Agenda 2030 é um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável. A Plataforma provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações orientadas ao cumprimento dessa Agenda.</p>
-                        <!--Existe um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável: A Agenda 2030 e seus Objetivos de Desenvolvimento Sustentável (ODS). A plataforma Agenda 2030 provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações globais e nacionais orientadas ao cumprimento desse plano de ação, assinado por todos os membros das Nações Unidas. Um 2030 socialmente justo, economicamente inclusivo e ambientalmente sustentável depende de transparência, da sua colaboração e de nossa ação transformadora.<br/>Junte-se à nós!-->
                     <?php } ?>
                 </div>
             </div>
@@ -119,19 +127,19 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
                 <div class="col-xs-4 text-center">
                     <a href="aagenda2030.php">
                         <img class="img-circle" src="images/info_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Conheça mais sobre a Agenda 2030 e os ODS</h2>
+                        <h2 class="subtitle-font header-icons">Conheça a Agenda 2030 e os ODS</h2>
                     </a>
                 </div>
                 <div class="col-xs-4 text-center">
                     <a href="consulta.php">
                         <img class="img-circle" src="images/data_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Acesse as metas e indicadores dos Brasil e Estados</h2>
+                        <h2 class="subtitle-font header-icons">Acesse as metas e os indicadores globais da Agenda 2030</h2>
                     </a>
                 </div>
                 <div class="col-xs-4 text-center">
                     <a href="contato.php">
                         <img class="img-circle" src="images/interaction_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Nos conte como seu projeto pode contribuir para a Agenda</h2>
+                        <h2 class="subtitle-font header-icons">Contribua para a Agenda 2030</h2>
                     </a>
                 </div>
             </div>
@@ -177,28 +185,6 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     }
 }
 
-function getContent(){
-?>
-        <!-- geo search row -->
-        <div class="row" style="padding-top:30px;padding-bottom: 30px;">
-            <div class="col-xs-12 col-xs-6 text-right" style="margin-top:8px;">
-						<span class="label label-primary" style="border-radius: 20px;padding:10px 20px;font-family:Arial, sans-serif;font-size:10pt;font-weight: 200;">Ou pesquise a situação do Brasil ou de algum estado</span>
-            </div>
-            <div class="col-xs-12 col-sm-5 col-md-4 text-left">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pesquisa">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Estado <span class="glyphicon glyphicon-triangle-bottom" style="font-size:8pt;"></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <!-- ./geo search row -->
-    </div>
-<?php
-}
-
 function getFooter(){
     global $opcoes_menu;
 ?>
@@ -217,8 +203,8 @@ function getFooter(){
         </div>
         <div class="col-xs-6 text-right">
             <div style="display:inline-block;">
-                <img src="images/pnud_logo_white_tg.png" style="padding:30px;">
-                <img src="images/ipea_logo_no_bg.png" style="padding:30px;">
+                <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png" style="padding:10px 40px 0 0;"/></a>
+                <a target="_blank" href="http://www.ipea.gov.br/" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png" style="padding:0 30px 0 0;"></a>
             </div>
         </div>
     </div>

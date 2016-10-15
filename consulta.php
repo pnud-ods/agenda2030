@@ -10,8 +10,13 @@ getHeader();
 <script src="js/jquery.sparkline.min.js"></script>
 <script type="text/javascript" src="js/grafico.js"></script>
 <script type="text/javascript">
-    function marcaTerritorio(i){
-        console.log(i);
+    function marcaTerritorio(obj, i){
+        $('#territorio').find('.glyphicon').each(function(){
+            console.log($(this));
+            $(this).css('display', 'none');
+        });
+        $(obj).find('.glyphicon').css('display', 'inline-block');
+
     }
 
     function mudaODS(o){
@@ -67,7 +72,7 @@ getHeader();
                     <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 Escolha um Território <span class="caret"></span> </a>
-                            <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5">
+                            <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5" id="territorio">
                                 <?php
                                 $sql = "select dt.seq_dim_territorio, dt.nom_territorio_ptbr
                                           from $NAME_DW.dim_territorio dt
@@ -75,7 +80,7 @@ getHeader();
                                 $result = $conn->query($sql);
                                 while( $row = $result->fetch_assoc() ){
                                     echo '<li>';
-                                    echo "<a onclick=\"marcaTerritorio('{$row['seq_dim_territorio']}');\">{$row['nom_territorio_ptbr']}</a>";
+                                    echo "<a onclick=\"marcaTerritorio(this, '{$row['seq_dim_territorio']}');\"><span class=\"glyphicon glyphicon-chevron-down main_color_13\" style=\"display:none;padding-right:5px;\"></span>{$row['nom_territorio_ptbr']}</a>";
                                     echo '</li>' . "\n";
                                 }
                                 ?>
