@@ -220,3 +220,7 @@ td.dsc_meta{
 .referencias p:last-child{
     margin-bottom:0;
 }
+.resp_faq{
+    padding:10px 0 20px;
+    text-align:justify;
+}
