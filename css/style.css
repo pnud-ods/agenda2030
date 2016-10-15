@@ -182,6 +182,14 @@ button, a, a:active, a:focus, a:hover{
 img.odm{
    margin:2px;
 }
+table.metas{
+    width:100%;
+    border: 1px solid #cfcfcf;
+}
+table.metas #cx_metas{
+    width:100%;
+    vertical-align:top;
+}
 td.meta{
     padding:20px 20px 20px 40px;
 }

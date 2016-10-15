@@ -28,7 +28,7 @@ getHeader();
         $.ajax({
             url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
         }).done(function(retorno){
-            $('#metas').css('width', '40%');
+            $('#cx_metas').css('width', '40%');
             var indicadores = $('#indicadores');
             indicadores.css('width', '60%');
             indicadores.html(retorno);
@@ -93,15 +93,13 @@ getHeader();
                 </div>
                 <div class="row" style="margin-bottom: 90px;">
                     <div class="col-xs-12">
-                        <table style="border: 1px solid #cfcfcf;">
+                        <table class="metas">
                             <tr style="background-color:#f5f5f5;">
-                                <td style="padding-left:40px;">
+                                <td style="padding-left:40px;" colspan="2">
                                     <h2 class="main_color_<?php echo $ods; ?>">Metas do Objetivo <?php echo $ods; ?></h2>
                                 </td>
-                                <td></td>
                             </tr>
-
-                            <td id="metas" style="width:100%;">
+                            <td id="cx_metas">
                                 <table style="width:100%;">
                                     <tbody>
                                     <?php
