@@ -165,14 +165,16 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
                 echo '<div class="ods-logo-container">';
                 $numero = str_pad($i, 2, '0', STR_PAD_LEFT);
                 if( $i < 18 ){
-                    $alt = "ODS $i";
-                    $link = "meta.php?ods=$i";
+                    $alt   = "ODS $i";
+                    $link  = "meta.php?ods=$i";
+                    $title = "Detalhar ODS $i";
                 }
                 else{
-                    $alt = 'Logo';
-                    $link = "consulta.php";
+                    $alt   = 'Logo';
+                    $link  = "consulta.php";
+                    $title = "Consultar indicadores";
                 }
-                echo "<a href=\"$link\"><img src=\"images/ods_icons/$numero.png\" alt=\"$alt\"></a>";
+                echo "<a title=\"$title\" href=\"$link\"><img src=\"images/ods_icons/$numero.png\" alt=\"$alt\"></a>";
                 echo '</div>' . "\n";
                 if( $i == 9 ){
                     echo '<br/>';

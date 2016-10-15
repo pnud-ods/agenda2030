@@ -1,3 +1,8 @@
+html, body{
+    margin:0;
+    padding:0;
+    border:0;
+}
 .clear{
     clear:both;
     outline:none;
@@ -151,6 +156,29 @@ button, a, a:active, a:focus, a:hover{
     font-size:10pt;
 }
 
+/* Página dos ODSs */
+.cabecalho_ods{
+    padding:10px;
+}
+.cabecalho_ods .logo{
+    padding-right:20px;
+    vertical-align:top;
+    width:145px;
+}
+.cabecalho_ods .titulo{
+    padding-right:20px;
+    vertical-align:top;"
+}
+.cabecalho_ods .titulo .nom_ods{
+    font-size:22pt;
+    line-height:1;
+}
+.cabecalho_ods .titulo .dsc_ods{
+    text-align:justify;
+    color:#6c6c6c;
+    font-size:18pt;
+    font-weight:200;
+}
 img.odm{
    margin:2px;
 }

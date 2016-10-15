@@ -54,14 +54,14 @@ getHeader();
                 <div class="row">
                     <div class="col-xs-12" style="padding:30px 60px 15px 60px;">
                         <table style="width:100%;">
-                            <tr style="padding:10px;" >
-                                <td style="">
-                                    <img class="img-responsive" src="images/ods_icons/<?php echo $num_ods; ?>.png" alt="" width="145" height="145">
+                            <tr class="cabecalho_ods">
+                                <td class="logo">
+                                    <img src="images/ods_icons/<?php echo $num_ods; ?>.png" alt="" width="145" height="145">
                                 </td>
-                                <td style="padding:20px 10px 0px 0px;vertical-align:top;">
-                                    <p class="main_color_<?php echo $ods; ?> title-font" style="font-size:22pt;">Objetivo <?php echo $ods; ?>.</p>
+                                <td class="titulo">
+                                    <p class="main_color_<?php echo $ods; ?> title-font nom_ods">Objetivo <?php echo $ods; ?>.</p>
                                     <p class="main_color_<?php echo $ods; ?> title-font" style="font-size:26pt;"><?php echo $row['nom_ods']; ?></p>
-                                    <p style="color:#6c6c6c;font-size:18pt;font-weight:200;"><?php echo $row['dsc_ods']; ?></p>
+                                    <p class="dsc_ods"><?php echo $row['dsc_ods']; ?></p>
                                 </td>
                                 <td style="max-width:220px;">
                                     <div >
