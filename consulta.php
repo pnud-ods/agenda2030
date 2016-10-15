@@ -12,7 +12,6 @@ getHeader();
 <script type="text/javascript">
     function marcaTerritorio(obj, i){
         $('#territorio').find('.glyphicon').each(function(){
-            console.log($(this));
             $(this).css('display', 'none');
         });
         $(obj).find('.glyphicon').css('display', 'inline-block');

@@ -70,7 +70,6 @@ function getGrafico(id_ind, data){
 }
 
 function showGrafico(dados){
-    console.log(dados);
     var localeFormatter = d3.locale({
         "decimal": ",",
         "thousands": ".",
@@ -101,13 +100,22 @@ function showGrafico(dados){
             columns: arrayLinhas,
             names: rotulos
         },
+        axis:{
+            x:{
+                label: 'Ano'
+            },
+            y:{
+                label: dados.unidade
+            }
+        },
         legend:{
             position: 'right'
         },
         tooltip:{
             format:{
+                title: function (d) { return 'Ano ' + d; },
                 value:function(value){
-                    return localeFormatter.numberFormat('')(value);
+                    return localeFormatter.numberFormat('')(value) + ' ' + dados.unidade;
                 }
             }
         }

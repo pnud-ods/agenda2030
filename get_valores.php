@@ -20,7 +20,7 @@ if( !isset($simples) ){
     $array['estrutura'] .= '</tr>';
 }
 $array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;"><td>';
-$sql = "select di.nom_indicador
+$sql = "select di.nom_indicador, di.dsc_unidade
           from $NAME_DW.dim_indicador di
          where di.seq_dim_indicador = $id_ind";
 $result = $conn->query($sql);
@@ -32,6 +32,7 @@ $array['estrutura'] .= '<div id="tabela"></div>';
 $array['estrutura'] .= '</td></tr>';
 $array['estrutura'] .= '</tbody>';
 $array['estrutura'] .= '</table>';
+$array['dados']['unidade'] = $row['dsc_unidade'];
 
 $sql = "select dt.num_ano,
                (select dte.nom_territorio_ptbr
@@ -68,7 +69,6 @@ if( $result->num_rows > 0 ){
     $coluna1Mudou = false;
     $coluna2Mudou = false;
     $coluna3Mudou = false;
-    $coluna4Mudou = false;
     while( $row = $result->fetch_assoc() ){
         if( $row['num_ano'] > $ult_ano ){
             $titulo  .= "<th>{$row['num_ano']}</th>";
@@ -82,14 +82,12 @@ if( $result->num_rows > 0 ){
             $ult_genero      != $row['ind_genero'] ){
             array_push($variaveisColuna, array($row['dsc_territorio'], $row['dsc_localidade'], $row['dsc_grupo_idade'], $row['ind_genero']));
             if( $corpo != '' ){
-                if(!$coluna1Mudou && $ult_territorio != $row['dsc_territorio'] )
+                if(!$coluna1Mudou && $ult_localidade != $row['dsc_localidade'] )
                     $coluna1Mudou = true;
-                if(!$coluna2Mudou && $ult_localidade != $row['dsc_localidade'] )
+                if(!$coluna2Mudou && $ult_grupo_idade != $row['dsc_grupo_idade'] )
                     $coluna2Mudou = true;
-                if(!$coluna3Mudou && $ult_grupo_idade != $row['dsc_grupo_idade'] )
+                if(!$coluna3Mudou && $ult_genero != $row['ind_genero'] )
                     $coluna3Mudou = true;
-                if(!$coluna4Mudou && $ult_genero != $row['ind_genero'] )
-                    $coluna4Mudou = true;
 
                 $indicador['valores'] = substr($valores, 0, -1);
                 $corpo  .= '<td class="ln">' . $indicador['valores'] . '</td></tr>';
@@ -130,15 +128,14 @@ if( $result->num_rows > 0 ){
     array_push($indicadores, $indicador);
     foreach( $indicadores as $key => &$ind ){
         $ind['nome']  = '';
-        $ind['nome'] .= ($coluna1Mudou) ? ('Território: ' . $variaveisColuna[$key]{0} . ' / ') : '';
-        $ind['nome'] .= ($coluna2Mudou) ? ('Localidade: ' . $variaveisColuna[$key]{1} . ' / ') : '';
-        $ind['nome'] .= ($coluna3Mudou) ? ('Idade: ' . $variaveisColuna[$key]{2} . ' / ') : '';
-        $ind['nome'] .= ($coluna4Mudou) ? ('Gênero: ' . $variaveisColuna[$key]{3} . ' / ') : '';
+        $ind['nome'] .= ($coluna1Mudou) ? ('Localidade: ' . $variaveisColuna[$key]{1} . ' / ') : '';
+        $ind['nome'] .= ($coluna2Mudou) ? ('Idade: ' . $variaveisColuna[$key]{2} . ' / ') : '';
+        $ind['nome'] .= ($coluna3Mudou) ? ('Gênero: ' . $variaveisColuna[$key]{3} . ' / ') : '';
         if( strlen($ind['nome']) == 0 ) {
-            $ind['nome'] = 'Total';
+            $ind['nome'] = $variaveisColuna[$key]{0};
         }
         else{
-            $ind['nome'] = substr($ind['nome'], 0, -3);
+            $ind['nome'] = $variaveisColuna[$key]{0} . ' / ' . substr($ind['nome'], 0, -3);
         }
     }
     $array['dados']['indicadores'] = $indicadores;
