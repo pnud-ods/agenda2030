@@ -28,18 +28,15 @@ for($i = 1; $i <= $quant_dias; $i++){
         $retorno['calendario'] .= "<li>$i</li>";
     }
     else{
-        $retorno['calendario'] .= "<li><span class=\"active\">$i</span></li>";
+        $retorno['calendario'] .= "<li class=\"active\">$i</li>";
+        $retorno['eventos'] .= "<div class=\"agenda-events-label-date\">Dia {$row['dia']}:</div>";
         while($row['dia'] == $i){
-            $retorno['eventos'] .= '<div class="row" style="margin-top:40px;">';
-            $retorno['eventos'] .= '<div class="col-xs-10 col-xs-offset-1 text-center">';
-            $retorno['eventos'] .= '<span class="agenda-events-label">';
+            $retorno['eventos'] .= '<div class="agenda-events-label">';
             $retorno['eventos'] .= "<a style=\"color:inherit;\" title=\"Ir para página do evento\" target=\"_blank\" href=\"{$row['dsc_link']}\">{$row['nom_evento']}</a>";
-            $retorno['eventos'] .= '</span>';
-            $retorno['eventos'] .= '<div class="border-botton-events-list"></div>';
-            $retorno['eventos'] .= '</div>';
             $retorno['eventos'] .= '</div>';
             $row = $result->fetch_assoc();
         }
+        $retorno['eventos'] .= '<div class="border-botton-events-list"></div>';
     }
 }
 
