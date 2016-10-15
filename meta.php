@@ -23,7 +23,7 @@ getHeader();
     function clickMeta(obj, o, i_m, n_m) {
         if( obj !== undefined ){
             $('.ativo').removeClass('ativo');
-            $(obj).parent().parent().addClass('ativo');
+            $(obj).addClass('ativo');
         }
         $.ajax({
             url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
@@ -109,11 +109,9 @@ getHeader();
                                                  order by dm.num_meta";
                                         $result = $conn->query($sql);
                                         while($row = $result->fetch_assoc()){
-                                            echo '<tr style="border:1px solid #cfcfcf;">';
-                                            echo '<td class="meta">';
-                                            echo "<a title=\"Exibir indicadores da meta\" onclick=\"clickMeta(this, $ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";
-                                            echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span>";
-                                            echo " {$row['dsc_meta']}</a>";
+                                            echo "<tr class=\"meta\" title=\"Exibir indicadores da meta\" onclick=\"clickMeta(this, $ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";
+                                            echo '<td class="dsc_meta">';
+                                            echo "<span class=\"main_color_$ods\">{$row['num_meta']}</span> {$row['dsc_meta']}";
                                             echo '</td>';
                                             echo '<td style="padding:20px;">';
                                             echo "<span class=\"glyphicon glyphicon-chevron-right main_color_$ods\"></span>";

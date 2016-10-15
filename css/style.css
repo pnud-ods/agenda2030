@@ -184,21 +184,21 @@ img.odm{
 }
 table.metas{
     width:100%;
-    border: 1px solid #cfcfcf;
+    border:1px solid #cfcfcf;
 }
 table.metas #cx_metas{
     width:100%;
     vertical-align:top;
 }
-td.meta{
-    padding:20px 20px 20px 40px;
-}
-td.meta a{
-    display:block;
-    color:inherit;
+tr.meta{
+    border:1px solid #cfcfcf;
+    cursor:pointer;
 }
 tr.ativo{
-    background-color: #f5f5f5;
+    background-color:#f5f5f5;
+}
+td.dsc_meta{
+    padding:20px 20px 20px 40px;
 }
 .veja_mais{
     padding:5px 10px;
