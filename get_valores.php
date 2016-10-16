@@ -20,13 +20,24 @@ if( !isset($simples) ){
     $array['estrutura'] .= '</tr>';
 }
 $array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;"><td>';
-$sql = "select di.nom_indicador, di.dsc_unidade
-          from $NAME_DW.dim_indicador di
-         where di.seq_dim_indicador = $id_ind";
+$sql = "select di.nom_indicador, di.dsc_unidade, dm.num_meta, dm.dsc_meta, do.seq_dim_ods, do.nom_ods
+          from $NAME_DW.dim_indicador di,$NAME_DW.dim_meta dm, $NAME_DW.dim_ods do
+         where di.seq_dim_meta = dm.seq_dim_meta
+           and dm.seq_dim_ods = do.seq_dim_ods
+           and di.seq_dim_indicador = $id_ind";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
-$array['estrutura'] .= "<div class=\"rot_indicador\">Indicador: {$row['nom_indicador']}</div>";
+if( isset($simples) ) {
+    $array['estrutura'] .= '<div class="rot_indicador">';
+    $array['estrutura'] .= "<div>Objetivo: {$row['seq_dim_ods']} - {$row['nom_ods']}</div>";
+    $array['estrutura'] .= "<div>Meta: {$row['num_meta']} - {$row['dsc_meta']}</div>";
+    $array['estrutura'] .= "<div>Indicador: {$row['nom_indicador']}</div>";
+    $array['estrutura'] .= '</div>';
+}
+else{
+    $array['estrutura'] .= "<div class=\"rot_indicador\">Indicador: {$row['nom_indicador']}</div>";
+}
 $array['estrutura'] .= '<div id="grafico"></div>';
 $array['estrutura'] .= '<div id="tabela"></div>';
 $array['estrutura'] .= '</td></tr>';
@@ -95,13 +106,13 @@ if( $result->num_rows > 0 ){
                 $valores = '';
             }
             $corpo .= '<tr>';
-            $corpo .= "<td>{$row['dsc_territorio']}</td>";
+            $corpo .= "<td class=\"rot\">{$row['dsc_territorio']}</td>";
             $corpo .= "<td>{$row['dsc_localidade']}</td>";
             $corpo .= "<td class=\"tp\">{$row['dsc_grupo_idade']}</td>";
             $corpo .= "<td>{$row['ind_genero']}</td>";
         }
         if( $row['vlr_indicador'] != 0 ){
-            $corpo .= "<td>{$row['vlr_indicador']}</td>";
+            $corpo .= '<td>' . number_format($row['vlr_indicador'], 2, ',', '.') . '</td>';
             $valores .= $row['vlr_indicador'] . ',';
         }
         else{

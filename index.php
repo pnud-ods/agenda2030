@@ -29,14 +29,12 @@ if( isset($mais_info) and $mais_info ){
     </div>
 <?php } ?>
         <!-- about agenda -->
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-12 text-left" style="padding: 40px 0px 20px 120px;">
-                        <h2>Entendendo a Agenda 2030</h2>
-                    </div>
+        <div>
+            <div>
+                <div style="padding:30px 0 30px 120px;">
+                    <h2>Entendendo a Agenda 2030</h2>
                 </div>
-                <div class="row" style="margin-top:30px;">
+                <div class="row">
                     <div class="col-xs-4 text-center about-agenda-icon-background">
                         <span>
                             <img src="images/about_agenda/icon_01.png" alt="" width="90" height="90">
@@ -110,7 +108,7 @@ if( isset($mais_info) and $mais_info ){
                 <h2>Os 17 Objetivos, suas Metas e Indicadores</h2>
             </div>
         </div>
-        <div class="row" style="background-color: #f8f8f8;">
+        <div class="row" style="background-color:#f8f8f8;">
             <div class="col-xs-5 col-xs-offset-1 text-left about-ods-text">
                 <span style="margin:auto;">
                     <p>Com a experiência prévia dos Objetivos de Desenvolvimento do Milênio - ODM (em vigor de 2000 a 2015), aprendeu-se que o estabelecimento de objetivos é um eficiente mecanismo para alcançar melhores resultados de desenvolvimento, e que esses compromissos serão acompanhados pela ação. Objetivos claros geram resultados claros. Cada objetivo possui um conjunto de metas universalmente aplicáveis. Os indicadores são dados quantitativos e/ou qualitativos que, juntos, definirão se uma meta está sendo cumprida.
@@ -130,6 +128,5 @@ if( isset($mais_info) and $mais_info ){
     </div>
     <!-- ./about od -->
 </div>
-
 <?php
 getFooter();

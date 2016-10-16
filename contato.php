@@ -145,86 +145,74 @@ getHeader();
                                     <div class="form-group">
                                         <a data-toggle="collapse" data-target="#ods_options" aria-expanded="true" aria-controls="ods_options" class="btn btn-default">Quais os ODS são do seu interesse <span class="glyphicon glyphicon-triangle-bottom" style="font-size:8pt;"></span></a>
                                     </div>
-                                    <div>
-                                        <div class="row collapse" id="ods_options" aria-expanded="true" style="margin-bottom:20px;">
-                                            <div class="col-xs-12">
-                                                <table style="width:100%:">
-                                                    <tbody><tr>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 1);" src="images/ods_icons/01.png" alt="ODS 1" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 2);" src="images/ods_icons/02.png" alt="ODS 2" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 3);" src="images/ods_icons/03.png" alt="ODS 3" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 4);" src="images/ods_icons/04.png" alt="ODS 4" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 5);" src="images/ods_icons/05.png" alt="ODS 5" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 6);" src="images/ods_icons/06.png" alt="ODS 6" width="145" height="145">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 7);" src="images/ods_icons/07.png" alt="ODS 7" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 8);" src="images/ods_icons/08.png" alt="ODS 8" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 9);" src="images/ods_icons/09.png" alt="ODS 9" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 10);" src="images/ods_icons/10.png" alt="ODS 10" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 11);" src="images/ods_icons/11.png" alt="ODS 11" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 12);" src="images/ods_icons/12.png" alt="ODS 12" width="145" height="145">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 13);" src="images/ods_icons/13.png" alt="ODS 13" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 14);" src="images/ods_icons/14.png" alt="ODS 14" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 15);" src="images/ods_icons/15.png" alt="ODS 15" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 16);" src="images/ods_icons/16.png" alt="ODS 16" width="145" height="145">
-                                                        </td>
-                                                        <td class="ods-logo-container-contact">
-                                                            <input type="hidden" name="ods[]"  value="0"/>
-                                                            <img onclick="marcaODS(this, 17);" src="images/ods_icons/17.png" alt="ODS 17" width="145" height="145">
-                                                        </td>
-                                                    </tr>
-                                                    </tbody></table>
-                                            </div>
+                                    <div class="collapse" id="ods_options" aria-expanded="true">
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 1);" src="images/ods_icons/01.png" alt="ODS 1" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 2);" src="images/ods_icons/02.png" alt="ODS 2" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 3);" src="images/ods_icons/03.png" alt="ODS 3" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 4);" src="images/ods_icons/04.png" alt="ODS 4" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 5);" src="images/ods_icons/05.png" alt="ODS 5" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 6);" src="images/ods_icons/06.png" alt="ODS 6" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 7);" src="images/ods_icons/07.png" alt="ODS 7" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 8);" src="images/ods_icons/08.png" alt="ODS 8" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 9);" src="images/ods_icons/09.png" alt="ODS 9" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 10);" src="images/ods_icons/10.png" alt="ODS 10" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 11);" src="images/ods_icons/11.png" alt="ODS 11" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 12);" src="images/ods_icons/12.png" alt="ODS 12" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 13);" src="images/ods_icons/13.png" alt="ODS 13" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 14);" src="images/ods_icons/14.png" alt="ODS 14" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 15);" src="images/ods_icons/15.png" alt="ODS 15" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 16);" src="images/ods_icons/16.png" alt="ODS 16" width="145" height="145">
+                                        </div>
+                                        <div class="ods-logo-container-contact">
+                                            <input type="hidden" name="ods[]"  value="0"/>
+                                            <img onclick="marcaODS(this, 17);" src="images/ods_icons/17.png" alt="ODS 17" width="145" height="145">
                                         </div>
                                     </div>
                                     <div class="form-group">

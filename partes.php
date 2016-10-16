@@ -35,18 +35,15 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap337.css"/>
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/ods_colors.css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/ods_colors.css"/>
 
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900&amp;lang=en"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900&amp;lang=en"
         rel="stylesheet">
 
     <!-- Latest compiled and minified JavaScript -->
@@ -71,7 +68,7 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     </script>
 </head>
 <body>
-    <div class="row top-menu-background top-menu-height">
+    <div class="top-menu-background top-menu-height">
         <div class="col-xs-12">
             <div class="navbar-header">
                 <button aria-controls="bs-navbar" aria-expanded="true" class="navbar-toggle" data-target="#bsnavbar"
@@ -80,11 +77,11 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
                     <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
                 <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD">
-                    <img src="images/pnud_logo_white_bg.png" style="z-index:100;position:absolute;left:60px;">
+                    <img src="images/pnud_logo_white_bg.png" style="z-index:100;position:absolute;left:45px;">
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse">
+            <div>
                 <ul class="nav navbar-nav">
                     <?php
                         foreach($opcoes_menu as $opcao){
@@ -112,47 +109,41 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     </div>
 
     <!-- header -->
-    <div class="header row header-background font-white">
+    <div class="header font-white">
         <div class="col-xs-12">
             <!-- logo ods -->
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <a title="Página de abertura" href="<?php echo $home; ?>">
-                        <img src="images/ods_logo.png" style="margin-top:-30px;">
-                    </a>
-                </div>
+            <div class="col-xs-12 text-center">
+                <a title="Página de abertura" href="<?php echo $home; ?>">
+                    <img src="images/ods_logo.png" style="margin-top:-30px;">
+                </a>
             </div>
-            <!-- ./logo ods -->
 
             <!-- title -->
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 text-center" style="padding:0;">
-                    <h2 class="title-font text-white-shadow">Plataforma Agenda 2030</h2>
-                    <?php if($ehAbertura){ ?>
-                    <p class="subtitle-font" style="padding-top:20px;font-size:16px;">A Agenda 2030 é um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável. A Plataforma provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações orientadas ao cumprimento dessa Agenda.</p>
-                    <?php } ?>
-                </div>
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <h2 class="titulo">Plataforma Agenda 2030</h2>
+                <?php if($ehAbertura){ ?>
+                <p class="subtitle-font">A Agenda 2030 é um plano de ação global para em 2030 alcançarmos o desenvolvimento sustentável. A Plataforma provê acesso à dados, canais de participação e informações gerais para o acompanhamento das ações orientadas ao cumprimento dessa Agenda.</p>
+                <?php } ?>
             </div>
-            <!-- ./title -->
 
             <?php if($ehAbertura){ ?>
-            <div class="row destaque">
+            <div class="destaque">
                 <div class="col-xs-4 text-center">
                     <a href="aagenda2030.php">
                         <img class="img-circle" src="images/info_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Conheça a Agenda 2030 e os ODS</h2>
+                        <h2 class="header-icons">Conheça a Agenda 2030 e os ODS</h2>
                     </a>
                 </div>
                 <div class="col-xs-4 text-center">
                     <a href="consulta.php">
                         <img class="img-circle" src="images/data_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Acesse as metas e os indicadores globais da Agenda 2030</h2>
+                        <h2 class="header-icons">Acesse as metas e os indicadores globais da Agenda 2030</h2>
                     </a>
                 </div>
                 <div class="col-xs-4 text-center">
                     <a href="contato.php">
                         <img class="img-circle" src="images/interaction_icon_header.png" alt="" width="110" height="110">
-                        <h2 class="subtitle-font header-icons">Contribua para a Agenda 2030</h2>
+                        <h2 class="header-icons">Contribua para a Agenda 2030</h2>
                     </a>
                 </div>
             </div>
@@ -161,11 +152,7 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     </div>
 
     <?php if($ehAbertura and $mostraODSs){ ?>
-        <div class="row" style="min-height:40px;background-color: #408dcc;">
-            <div class="col-xs-12 text-center font-white">
-                <h4 style="font-weight:300;line-height:40px;">Para saber mais, selecione um ODS abaixo:</h4>
-            </div>
-        </div>
+        <div class="saber_mais">Para saber mais, selecione um ODS abaixo:</div>
     <?php
         }
         if($mostraODSs){
@@ -203,8 +190,8 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
 function getFooter(){
     global $opcoes_menu;
 ?>
-    <div class="footer row" style="background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
-        <div class="col-xs-5 col-xs-offset-1">
+    <div class="footer">
+        <div style="float:left;">
             <p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
                 Plataforma Agenda 2030
             </p>
@@ -216,12 +203,11 @@ function getFooter(){
             ?>
             </ul>
         </div>
-        <div class="col-xs-6 text-right">
-            <div style="display:inline-block;">
-                <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png" style="padding:10px 40px 0 0;"/></a>
-                <a target="_blank" href="http://www.ipea.gov.br/" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png" style="padding:0 30px 0 0;"></a>
-            </div>
+        <div style="float:right;">
+            <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png" style="padding:10px 40px 0 0;"/></a>
+            <a target="_blank" href="http://www.ipea.gov.br/" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png"></a>
         </div>
+        <div class="clear"></div>
     </div>
 </body>
 </html>

@@ -19,31 +19,40 @@ getHeader();
     }
 
     function mudaODS(o){
-        $('#metas').empty();
+        var cx_metas = $('#metas');
+        cx_metas.empty();
+        cx_metas.addClass('carregando');
         $('#indicadores').empty();
         $.ajax({
             url: 'get_metas.php?o=' + o
         }).done(function(retorno){
-            $('#metas').append(retorno);
+            cx_metas.removeClass('carregando');
+            cx_metas.append(retorno);
         });
     }
 
     function mudaMeta(i_m){
-        $('#indicadores').empty();
+        var cx_indicadores = $('#indicadores');
+        cx_indicadores.empty();
+        cx_indicadores.addClass('carregando');
         $.ajax({
             url: 'get_ind_consulta.php?i_m=' + i_m
         }).done(function(retorno){
-            $('#indicadores').append(retorno);
+            cx_indicadores.removeClass('carregando');
+            cx_indicadores.append(retorno);
         });
     }
 
     function consultarIndicador(i_i){
+        var cx_valores = $('#valores');
         $('button.close').click();
+        cx_valores.addClass('carregando');
         $.ajax({
             url: 'get_valores.php?s=1&i_i=' + i_i,
             dataType: 'json'
         }).done(function(retorno){
-            $('#valores').html(retorno.estrutura);
+            cx_valores.removeClass('carregando');
+            cx_valores.html(retorno.estrutura);
             $('#tabela').html(retorno.tabela);
             showGrafico(retorno.dados);
         });
@@ -53,7 +62,8 @@ getHeader();
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <!-- consulta container -->
-        <div style="padding:30px 0 400px 0;">
+        <div style="min-height:400px;margin-bottom:45px;">
+            <?php /* ?>
             <div class="row">
                 <div class="col-xs-12">
                     <ul class="nav nav-tabs">
@@ -66,9 +76,12 @@ getHeader();
                     </ul>
                 </div>
             </div>
+            <?php */ ?>
             <div class="row" style="padding-top:30px;">
                 <div class="col-xs-12">
                     <ul class="nav nav-pills" role="tablist">
+
+                        <?php /* ?>
                         <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 Escolha um Território <span class="caret"></span> </a>
                             <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5" id="territorio">
@@ -85,11 +98,14 @@ getHeader();
                                 ?>
                             </ul>
                         </li>
+                        <?php */ ?>
 
                         <li role="presentation"> <a role="button" aria-haspopup="true" aria-expanded="true" >
                                 <span data-toggle="modal" data-target=".bs-example-modal-lg">Escolha um Indicador <span class="caret"></span> </span>
                             </a>
                         </li>
+
+                        <?php /* ?>
                         <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 Escolha um Período <span class="caret"></span> </a>
                             <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5">
@@ -109,9 +125,11 @@ getHeader();
                                 <li><a href="#">2001-2002</a></li>
                             </ul>
                         </li>
+                        <?php */ ?>
                     </ul>
                 </div>
             </div>
+
             <!-- modal container -->
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
@@ -123,17 +141,11 @@ getHeader();
                         <div class="modal-body" style="padding-bottom:40px;">
                             <table style="width:100%;">
                                 <tr style="border-bottom: 1px solid #ededed;">
-                                    <th style="padding-bottom:10px;">
-                                        Objetivos
-                                    </th>
-                                    <th>
-                                        Metas
-                                    </th>
-                                    <th>
-                                        Indicadores
-                                    </th>
+                                    <th style="padding-bottom:10px;">Objetivos</th>
+                                    <th>Metas</th>
+                                    <th>Indicadores</th>
                                 </tr>
-                                <tr style="vertical-align: top;">
+                                <tr style="vertical-align:top;">
                                     <td style="width:33%;">
                                         <table class="consulta-table-grid" style="padding-top:10px;">
                                             <?php
@@ -164,7 +176,7 @@ getHeader();
                 </div>
             </div>
             <!-- ./modal container -->
-            <div id="valores" style="margin-top:30px;"></div>
+            <div id="valores" style="margin-top:10px;"></div>
         </div>
         <!-- ./consulta container -->
     </div>
