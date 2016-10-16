@@ -99,40 +99,6 @@ button, a, a:active, a:focus, a:hover{
     height:127px;
     margin:4px 2px;
 }
-.about-agenda-icon-background {
-	display:flex;
-	min-height:170px;
-	background-image: url('../images/about_agenda/line_icons_bg.png');
-	background-repeat: repeat-y;
-	background-position: center;
-	margin-right:-90px;
-}
-
-.about-agenda-text{
-    color: #545454; /*#797979*/
-    font-size: 12pt;
-    text-align: justify;
-}
-.about-agenda-text-home{
-    color: #545454;
-    display: flex;
-    font-size: 12pt;
-    text-align:left;
-    min-height: 170px;
-}
-.about-agenda-icon-background span{
-    margin:auto;
-}
-.about-agenda-text-home span{
-    margin:auto 0;
-}
-.about-ods-text{
-	display:flex;
-	min-height:410px;
-	font-size:14pt;
-	color:#595959;
-}
-
 .blue-customized-button {
 	background-color:#1a8dde;
 	color:#fff;
@@ -156,7 +122,7 @@ button, a, a:active, a:focus, a:hover{
     font-size:10pt;
 }
 
-/* Página dos ODSs */
+/* Página: Metas */
 .cabecalho_ods{
     padding:10px;
 }
@@ -210,6 +176,8 @@ td.dsc_meta{
 .rot_indicador{
     margin:10px 15px;
 }
+
+/* Página: Biblioteca */
 .referencias{
     font-size:10pt;
     margin-top:10px;
@@ -220,7 +188,63 @@ td.dsc_meta{
 .referencias p:last-child{
     margin-bottom:0;
 }
+
+/* Página: Faq */
 .resp_faq{
     padding:10px 0 20px;
     text-align:justify;
+}
+
+/* Página: Agenda */
+.about-agenda-icon-background {
+    display:flex;
+    min-height:170px;
+    background-image: url('../images/about_agenda/line_icons_bg.png');
+    background-repeat: repeat-y;
+    background-position: center;
+    margin-right:-90px;
+}
+.about-agenda-text{
+    color: #545454; /*#797979*/
+    font-size: 12pt;
+    text-align: justify;
+}
+.about-agenda-text-home{
+    color: #545454;
+    display: flex;
+    font-size: 12pt;
+    text-align:left;
+    min-height: 170px;
+}
+.about-agenda-icon-background span{
+    margin:auto;
+}
+.about-agenda-text-home span{
+    margin:auto 0;
+}
+.about-ods-text{
+    display:flex;
+    min-height:410px;
+    font-size:14pt;
+    color:#595959;
+}
+
+/* Página: Contato */
+.banner_parceiro{
+    margin-top:50px;
+    padding:20px;
+}
+.ods-logo-container-contact img{
+    margin:2px;
+    padding:2px;
+    cursor:pointer;
+    width:46px;
+    height:46px;
+}
+.check{
+    border:3px solid #1A8DDE;
+}
+.msg_erro{
+    margin-top:20px;
+    color:darkred;
 }
