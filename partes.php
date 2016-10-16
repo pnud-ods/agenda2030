@@ -17,7 +17,20 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content='pt-BR' />
+    <meta name="country" content="Brazil" />
+    <meta name="geo.country" content="BR" />
     <title>Agenda 2030</title>
+    <meta name="robots" content="index, follow, noarchive" />
+    <meta name="googlebot" content="noarchive" />
+    <meta name="description" content="Plataforma online da Agenda 2030 para o Desenvolvimento Sustentável">
+    <meta name="keywords" content="ODS, Objetivos, Desenvolvimento, Sustetável, Agenda 2030, ODM, Metas, Indicadores, ONU, PNUD" />
+
+    <meta name="application-name" content="Agenda 2030" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link rel="apple-touch-icon" type="image/x-icon" href="images/favicon.png" />
 
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
