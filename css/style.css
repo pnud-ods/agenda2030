@@ -26,7 +26,6 @@ button, a, a:active, a:focus, a:hover{
 .destaque a, .destaque a:hover{
     color:#FFFFFF;
 }
-
 .top-menu-background{
 	background-color:#18629c;
 }
@@ -58,38 +57,33 @@ button, a, a:active, a:focus, a:hover{
 }
 .title-font{
 	font-family:Roboto, Helvetica, Arial, sans-serif;
+    font-size:26pt;
 }
 .subtitle-font{
     font-size:16px;
     font-weight:200;
     padding-top:20px;
 }
-
 .question-font{
 	/*font-family:Roboto, Helvetica, Arial, sans-serif;*/
 	font-size:16pt;font-weight:400;
 }
-
 .text-white-shadow{
 	text-shadow:0 0 18px rgba(255, 255, 255, 0.58);
 }
-
 .font-white{
 	color:#fff;
 }
-
 .header-icons{
 	padding:0 30px;
 	font-weight:400;line-height:22pt;
     font-size:16pt;
 }
-
 .navbar-brand, .navbar-nav>li>a{
 	color:#eaeaea;
 	text-shadow:0 0;
 	font-weight:100;
 	font-family:Roboto;
-
 }
 .menu-list:first-child{
     margin-left:130px;
@@ -98,7 +92,6 @@ button, a, a:active, a:focus, a:hover{
 	color:#1c65a3;
 	text-shadow:0 0;
 }
-
 .ods-container{
     background-color:#f6f6f6;
     width:100%;
@@ -148,6 +141,23 @@ button, a, a:active, a:focus, a:hover{
     min-height:200px;
     padding:45px 110px;
 }
+.footer .logos{
+    float:right;
+    text-align:right
+}
+.footer .label_footer{
+    margin:30px 0 20px;
+    color:#e4f0f7;
+    font-weight:bold;
+    font-size:12pt;
+}
+.footer .logos img{
+    margin-left:30px;
+}
+.footer .label_footer:first-child{
+    margin-top:0;
+}
+
 /* Página:Metas */
 .cabecalho_ods{
     padding:10px;
@@ -159,11 +169,14 @@ button, a, a:active, a:focus, a:hover{
 }
 .cabecalho_ods .titulo{
     padding-right:20px;
-    vertical-align:top;"
+    vertical-align:top;
 }
-.cabecalho_ods .titulo .nom_ods{
-    font-size:22pt;
+.nom_ods{
+    font-size:22pt!important;
     line-height:1;
+}
+p.dsc_meta, p.dsc_indicador{
+    font-size:12pt;
 }
 .cabecalho_ods .titulo .dsc_ods{
     text-align:justify;
@@ -202,7 +215,12 @@ td.dsc_meta{
 .rot_indicador{
     margin:20px 15px;
 }
-
+.rot_indicador div{
+    padding:5px 0;
+}
+.vazio{
+    font-size:14pt;
+}
 /* Página:Biblioteca */
 .referencias{
     font-size:10pt;
@@ -231,7 +249,7 @@ td.dsc_meta{
     margin-right:-90px;
 }
 .about-agenda-text{
-    color:#545454; /*#797979*/
+    color:#545454;
     font-size:12pt;
     text-align:justify;
 }
