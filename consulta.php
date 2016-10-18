@@ -10,15 +10,16 @@ getHeader();
 <script src="js/jquery.sparkline.min.js"></script>
 <script type="text/javascript" src="js/grafico.js"></script>
 <script type="text/javascript">
-    function marcaTerritorio(obj, i){
-        $('#territorio').find('.glyphicon').each(function(){
-            $(this).css('display', 'none');
-        });
-        $(obj).find('.glyphicon').css('display', 'inline-block');
-
+    var carregando = false;
+    function marcaFiltro(){
+        if( indicador_exibido !== undefined ){
+            consultarIndicador(indicador_exibido);
+        }
     }
 
     function mudaODS(o){
+        if( carregando ) return;
+        carregando = true;
         var cx_metas = $('#metas');
         cx_metas.empty();
         cx_metas.addClass('carregando');
@@ -28,10 +29,13 @@ getHeader();
         }).done(function(retorno){
             cx_metas.removeClass('carregando');
             cx_metas.append(retorno);
+            carregando = false;
         });
     }
 
     function mudaMeta(i_m){
+        if( carregando ) return;
+        carregando = true;
         var cx_indicadores = $('#indicadores');
         cx_indicadores.empty();
         cx_indicadores.addClass('carregando');
@@ -40,92 +44,130 @@ getHeader();
         }).done(function(retorno){
             cx_indicadores.removeClass('carregando');
             cx_indicadores.append(retorno);
+            carregando = false;
         });
     }
 
+    var indicador_exibido;
     function consultarIndicador(i_i){
+        if( carregando ) return;
+        carregando = true;
         var cx_valores = $('#valores');
-        $('button.close').click();
         cx_valores.addClass('carregando');
+        cx_valores.empty();
+        $('button.close').click();
+        var territorios = '';
+        $('#territorios input:checked').each(function(){
+            territorios += ',' + $(this).attr('seq_t');
+        });
+        if( territorios.length == 0 ){
+            alert('Pelo menos um território deve estar selecionado.');
+            return;
+        }
+        territorios = territorios.substring(1);
+        var anos = $("input[name='ano']:checked").val();
         $.ajax({
-            url: 'get_valores.php?s=1&i_i=' + i_i,
+            url: 'get_valores.php?s=1&i_i=' + i_i + '&t=' + territorios + '&a=' + anos,
             dataType: 'json'
         }).done(function(retorno){
+            indicador_exibido = i_i;
             cx_valores.removeClass('carregando');
             cx_valores.html(retorno.estrutura);
-            $('#tabela').html(retorno.tabela);
-            showGrafico(retorno.dados);
+            if( retorno.tabela != undefined ){
+                $('#tabela').html(retorno.tabela);
+                showGrafico(retorno.dados);
+            }
+            else{
+                $('#tabela').html(retorno.resultado);
+            }
+            carregando = false;
         });
     }
 </script>
+<style>
+    .territorio, .ano{
+        margin:5px 15px;
+        display:block;
+        position:relative;
+    }
+    .territorio label,
+    .ano label{
+        font-weight:400;
+        cursor:pointer;
+        margin-bottom:0;
+        min-height:20px;
+        padding-left:20px;
+        display:inline-block;
+        max-width:100%;
+    }
+    .territorio input,
+    .ano input{
+        margin-left:-20px;
+        position:absolute;
+    }
+</style>
 <!-- info data container -->
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <!-- consulta container -->
-        <div style="min-height:400px;margin-bottom:45px;">
-            <?php /* ?>
+        <div style="min-height:400px;margin:30px 0;">
             <div class="row">
                 <div class="col-xs-12">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="active"><a href="#">Consulta</a></li>
                         <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Downloads <span class="caret"></span>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Downloads <span class="caret"></span>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li><a title="Download dos Dados do Brasil" href="/downloads/Indicadores_Brasil.csv">Dados do Brasil</a></li>
+                                <li><a title="Download dos Dados da América Latina" href="/downloads/Indicatodes_AmericaLatina.csv">Dados da América Latina</a></li>
+                                <li><a title="Download dos Dados do Mundo" href="/downloads/Indicadores_Mundo.csv">Dados do Mundo</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            <?php */ ?>
             <div class="row" style="padding-top:30px;">
                 <div class="col-xs-12">
                     <ul class="nav nav-pills" role="tablist">
-
-                        <?php /* ?>
                         <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 Escolha um Território <span class="caret"></span> </a>
-                            <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5" id="territorio">
+                            <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5">
                                 <?php
                                 $sql = "select dt.seq_dim_territorio, dt.nom_territorio_ptbr
                                           from $NAME_DW.dim_territorio dt
-                                         order by dt.seq_dim_territorio;";
+                                         order by dt.seq_dim_territorio desc;";
                                 $result = $conn->query($sql);
+                                echo '<li id="territorios">';
                                 while( $row = $result->fetch_assoc() ){
-                                    echo '<li>';
-                                    echo "<a onclick=\"marcaTerritorio(this, '{$row['seq_dim_territorio']}');\"><span class=\"glyphicon glyphicon-chevron-down main_color_13\" style=\"display:none;padding-right:5px;\"></span>{$row['nom_territorio_ptbr']}</a>";
-                                    echo '</li>' . "\n";
+                                    echo "<div class=\"territorio\"><label><input type=\"checkbox\" checked=\"checked\" onclick=\"marcaFiltro();\" seq_t=\"{$row['seq_dim_territorio']}\"/> {$row['nom_territorio_ptbr']}</label></div>";
                                 }
+                                echo '</li>' . "\n";
                                 ?>
                             </ul>
                         </li>
-                        <?php */ ?>
-
                         <li role="presentation"> <a role="button" aria-haspopup="true" aria-expanded="true" >
                                 <span data-toggle="modal" data-target=".bs-example-modal-lg">Escolha um Indicador <span class="caret"></span> </span>
                             </a>
                         </li>
 
-                        <?php /* ?>
                         <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                                Escolha um Período <span class="caret"></span> </a>
+                                Escolha um Período <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="menu2" aria-labelledby="drop5">
-                                <li><a href="#">2014-2015</a></li>
-                                <li><a href="#">2013-2014</a></li>
-                                <li><a href="#">2012-2013</a></li>
-                                <li><a href="#">2011-2012</a></li>
-                                <li><a href="#">2010-2011</a></li>
-                                <li><a href="#">2009-2010</a></li>
-                                <li><a href="#">2008-2009</a></li>
-                                <li><a href="#">2007-2008</a></li>
-                                <li><a href="#">2006-2007</a></li>
-                                <li><a href="#">2005-2006</a></li>
-                                <li><a href="#">2004-2005</a></li>
-                                <li><a href="#">2003-2004</a></li>
-                                <li><a href="#">2002-2003</a></li>
-                                <li><a href="#">2001-2002</a></li>
+                                <?php
+                                echo '<li id="ano">';
+                                echo "<div class=\"ano\"><label><input type=\"radio\" name=\"ano\" checked=\"checked\" onclick=\"marcaFiltro();\" value=\"0\"/> Todos os Anos</label></div>";
+                                $passo = 5;
+                                $ano_inicia = 2020;
+                                for( $i = $ano_inicia; $i > 2000; $i = $i - $passo ){
+                                    $i_f = ($i > date('Y')) ? date('Y') : $i - 1;
+                                    $i_i = $i - $passo;
+                                    echo "<div class=\"ano\"><label><input type=\"radio\" name=\"ano\" onclick=\"marcaFiltro();\" value=\"$i_i,$i_f\"/> $i_i - $i_f</label></div>";
+                                }
+                                echo '</li>' . "\n";
+                                ?>
                             </ul>
                         </li>
-                        <?php */ ?>
                     </ul>
                 </div>
             </div>

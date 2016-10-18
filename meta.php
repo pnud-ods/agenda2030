@@ -29,6 +29,8 @@ getHeader();
             url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
         }).done(function(retorno){
             $('#cx_metas').css('width', '40%');
+            var pos = $('.metas').offset().top;
+            $('html, body').stop().animate({scrollTop:pos}, '1000', 'swing');
             var indicadores = $('#indicadores');
             indicadores.css('width', '60%');
             indicadores.html(retorno);
@@ -106,7 +108,8 @@ getHeader();
                                         $sql = "select dm.seq_dim_meta, dm.num_meta, dm.dsc_meta
                                                   from $NAME_DW.dim_meta dm
                                                  where dm.seq_dim_ods = $ods
-                                                 order by dm.num_meta";
+                                                 order by substring_index(dm.num_meta, '.', -1) REGEXP '[0-9]+' desc,
+                                                          lpad(substring_index(dm.num_meta, '.', -1), 2, 0) asc";
                                         $result = $conn->query($sql);
                                         while($row = $result->fetch_assoc()){
                                             echo "<tr class=\"meta\" title=\"Exibir indicadores da meta\" onclick=\"clickMeta(this, $ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";

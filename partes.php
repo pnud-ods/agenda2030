@@ -192,9 +192,7 @@ function getFooter(){
 ?>
     <div class="footer">
         <div style="float:left;">
-            <p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
-                Plataforma Agenda 2030
-            </p>
+            <div class="label_footer">Plataforma Agenda 2030</div>
             <ul class="list-unstyled" style="color:#a0abb5;font-size:10pt">
             <?php
                 foreach($opcoes_menu as $opcao){
@@ -203,9 +201,22 @@ function getFooter(){
             ?>
             </ul>
         </div>
-        <div style="float:right;">
-            <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png" style="padding:10px 40px 0 0;"/></a>
-            <a target="_blank" href="http://www.ipea.gov.br/" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png"></a>
+        <div class="logos">
+            <div class="label_footer">Realização</div>
+            <a href="http://www.undp.org/content/brazil/pt/home.html" target="_blank" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png"/></a>
+            <a href="http://www.ipea.gov.br/" target="_blank" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png"></a>
+            <div class="label_footer">Parceiros Institucionais</div>
+            <div class="logosFooter">
+            <a href="http://www.petrobras.com.br/" target="_blank" title="Ir para site da Petrobras"><img src="images/logo_patrocinadores/petrobras.jpg" style="width:150px;"  alt="Petrobras"></a>
+            <a href="http://www.bnb.gov.br/" target="_blank" title="Ir para site do Banco do Nordeste"><img src="./images/logo_patrocinadores/banco_do_nordeste.jpg" style="width:110px;" alt="BNB"></a>
+                <a href="http://www.sebrae.com.br/" target="_blank" title="Ir para site do Sebrae"><img src="./images/logo_patrocinadores/sebrae.jpg" style="width:85px;" alt="Sebrae"></a>
+                <a href="http://www.furnas.com.br/" target="_blank" title="Ir para site de Furnas"><img src="./images/logo_patrocinadores/furnas.jpg" style="width: 64px;" alt="Furnas"></a>
+            </div>
+
+            <div class="label_footer">Apoio Institucional</div>
+            <a href="http://www.bb.com.br/" target="_blank" title="Ir para o sitem do Banco do Brasil"><img src="./images/logo_apoiadores/banco_do_brasil.jpg" style="width:200px;" alt="BB"/></a>
+            <a href="http://www.caixa.gov.br/" target="_blank" title="Ir para o sitem da Caixa"><img src="./images/logo_apoiadores/caixa.jpg" style="width:120px;" alt="Caixa"/></a>
+            <a href="http://www.brasil.gov.br/" target="_blank" title="Ir para o sitem do Governo Federal"><img src="./images/logo_apoiadores/governo_federal.png" style="width:120px;" alt="Governo Federal"/></a>
         </div>
         <div class="clear"></div>
     </div>

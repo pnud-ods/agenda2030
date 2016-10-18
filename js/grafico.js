@@ -102,10 +102,16 @@ function showGrafico(dados){
         },
         axis:{
             x:{
-                label: 'Ano'
+                label: {
+                    position: 'outer-center',
+                    text: 'Ano'
+                }
             },
             y:{
-                label: dados.unidade
+                label: {
+                    position: 'outer-middle',
+                    text: dados.unidade
+                }
             }
         },
         legend:{
@@ -115,7 +121,7 @@ function showGrafico(dados){
             format:{
                 title: function (d) { return 'Ano ' + d; },
                 value:function(value){
-                    return localeFormatter.numberFormat('')(value) + ' ' + dados.unidade;
+                    return localeFormatter.numberFormat(',.')(value) + ' ' + dados.unidade;
                 }
             }
         }
