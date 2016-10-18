@@ -119,9 +119,9 @@ getHeader();
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Downloads <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a title="Download dos Dados do Brasil" href="/downloads/Indicadores_Brasil.csv">Dados do Brasil</a></li>
-                                <li><a title="Download dos Dados da América Latina" href="/downloads/Indicatodes_AmericaLatina.csv">Dados da América Latina</a></li>
-                                <li><a title="Download dos Dados do Mundo" href="/downloads/Indicadores_Mundo.csv">Dados do Mundo</a></li>
+                                <li><a title="Download dos Dados do Brasil" href="/downloads/indicadores_brasil.xlsx">Dados do Brasil</a></li>
+                                <li><a title="Download dos Dados da América Latina" href="/downloads/indicadores_america_latina.xlsx">Dados da América Latina</a></li>
+                                <li><a title="Download dos Dados do Mundo" href="/downloads/indicadores_mundo.xlsx">Dados do Mundo</a></li>
                             </ul>
                         </li>
                     </ul>
