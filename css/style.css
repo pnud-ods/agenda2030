@@ -235,8 +235,9 @@ td.dsc_meta{
 
 /* Página:Faq */
 .resp_faq{
-    padding:10px 0 20px;
+    padding:10px 15px 20px;
     text-align:justify;
+    font-size:12pt;
 }
 
 /* Página:Agenda */
