@@ -1,4 +1,5 @@
 <?php
+$NOME_PAGINA = 'Eventos';
 include_once 'partes.php';
 getHeader();
 ?>

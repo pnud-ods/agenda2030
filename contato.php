@@ -1,4 +1,5 @@
 <?php
+$NOME_PAGINA = 'Contato';
 include_once 'partes.php';
 getHeader();
 ?>

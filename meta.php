@@ -1,4 +1,5 @@
 <?php
+$NOME_PAGINA = 'Objetivo';
 include_once 'partes.php';
 include_once 'conectar.php';
 $ods = $_REQUEST['ods'];
@@ -7,10 +8,19 @@ $num_ods = str_pad($ods, 2, '0', STR_PAD_LEFT);
 //Busca os dados do ODS
 $sql = "select do.nom_ods, do.dsc_ods, do.dsc_resumo_ods, do.dsc_odm_relacionado
           from $NAME_DW.dim_ods do
-         where do.seq_dim_ods = $ods";
+         where do.seq_dim_ods = '$ods'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
+//caso o parametro do número do objetivo seja invalido, finaliza a página
+if( !isset($row) ){
+    getHeader();
+    echo '<div class="vazio" style="margin:30px;">Não foi localizado o ODS desejado.</div>';
+    getFooter();
+    die;
+}
+
+$NOME_PAGINA .= " $num_ods";
 getHeader();
 ?>
 <link href="css/tabela_dados.css" rel="stylesheet" type="text/css">

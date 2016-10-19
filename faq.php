@@ -1,12 +1,10 @@
 <?php
+$NOME_PAGINA = 'Perguntas Frequentes';
 include_once 'partes.php';
 getHeader();
 ?>
-
-    <!-- info data container -->
     <div class="row" style="background-color:#eeeeee">
         <div class="col-xs-10 col-xs-offset-1">
-
             <!-- calendar container -->
             <div style="padding-bottom: 60px;">
                 <div class="row" style="padding:40px;paddin">

@@ -1,4 +1,5 @@
 <?php
+$NOME_PAGINA = 'Indicadores';
 include_once 'partes.php';
 include_once 'conectar.php';
 getHeader();
