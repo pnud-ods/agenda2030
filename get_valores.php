@@ -1,19 +1,21 @@
 <?php
 include_once 'conectar.php';
-$id_ind   = $_REQUEST['i_i'];
-$ods      = $_REQUEST['o'];
-$id_meta  = $_REQUEST['i_m'];
-$num_meta = $_REQUEST['n_m'];
+$id_ind      = $_REQUEST['i_i'];
+$ods         = $_REQUEST['o'];
+$id_meta     = $_REQUEST['i_m'];
+$num_meta    = $_REQUEST['n_m'];
+$territorios = $_REQUEST['t'];
+$anos        = $_REQUEST['a'];
 $simples  = $_REQUEST['s'];
 $array = array();
-$array['estrutura']  = '<table style="width:100%;">';
+$array['estrutura']  = '<table style="width:100%;table-layout:fixed;">';
 $array['estrutura'] .= '<tbody>';
 if( !isset($simples) ){
     $array['estrutura'] .= '<tr style="border-top: 1px solid #cfcfcf;">';
     $array['estrutura'] .= '<td style="font-size:16pt;padding:5px 10px;">';
     $array['estrutura'] .= '<h3>';
     $array['estrutura'] .= "<a title=\"Voltar para os Indicadores\" style=\"color:#333333;\" onclick=\"clickMeta(null, $ods, $id_meta, '$num_meta');\">";
-    $array['estrutura'] .= "<span class=\"glyphicon glyphicon-menu-left main_color_$ods\"></span> Voltar para os Indicadores da Meta $num_meta";
+    $array['estrutura'] .= "<span class=\"glyphicon glyphicon-menu-left main_color_$ods\"></span> Voltar para os Indicadores da Meta <span class=\"main_color_8\">$num_meta</span>";
     $array['estrutura'] .= '</a>';
     $array['estrutura'] .= '</h3>';
     $array['estrutura'] .= '</td>';
@@ -30,16 +32,19 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 if( isset($simples) ) {
     $array['estrutura'] .= '<div class="rot_indicador">';
-    $array['estrutura'] .= "<div>Objetivo: {$row['seq_dim_ods']} - {$row['nom_ods']}</div>";
-    $array['estrutura'] .= "<div>Meta: {$row['num_meta']} - {$row['dsc_meta']}</div>";
-    $array['estrutura'] .= "<div>Indicador: {$row['nom_indicador']}</div>";
+    $array['estrutura'] .= "<p class=\"main_color_{$row['seq_dim_ods']} title-font nom_ods\">Objetivo {$row['seq_dim_ods']}.</p>";
+    $array['estrutura'] .= "<p class=\"main_color_{$row['seq_dim_ods']} title-font\">{$row['nom_ods']}</p>";
+    $array['estrutura'] .= "<p class=\"dsc_meta\"><span class=\"main_color_{$row['seq_dim_ods']}\">Meta {$row['num_meta']}</span> {$row['dsc_meta']}</p>";
+    $array['estrutura'] .= "<p class=\"dsc_indicador\"><span class=\"main_color_{$row['seq_dim_ods']}\">Indicador:</span> {$row['nom_indicador']} - Unidade: {$row['dsc_unidade']}</p>";
     $array['estrutura'] .= '</div>';
+    $array['estrutura'] .= '<div id="tabela"></div>';
+    $array['estrutura'] .= '<div id="grafico"></div>';
 }
 else{
     $array['estrutura'] .= "<div class=\"rot_indicador\">Indicador: {$row['nom_indicador']}</div>";
+    $array['estrutura'] .= '<div id="grafico"></div>';
+    $array['estrutura'] .= '<div id="tabela"></div>';
 }
-$array['estrutura'] .= '<div id="grafico"></div>';
-$array['estrutura'] .= '<div id="tabela"></div>';
 $array['estrutura'] .= '</td></tr>';
 $array['estrutura'] .= '</tbody>';
 $array['estrutura'] .= '</table>';
@@ -63,8 +68,15 @@ $sql = "select dt.num_ano,
           from $NAME_DW.dim_valor_indicador dvi, $NAME_DW.dim_tempo dt
          where dvi.seq_dim_indicador = '$id_ind'
            and dvi.seq_dim_tempo = dt.seq_dim_tempo
-           and dt.num_ano >= 2001
-         order by dvi.seq_dim_territorio desc, dsc_localidade, dsc_grupo_idade, dvi.ind_genero, dt.num_ano;";
+           and dt.num_ano >= 2000";
+if( isset($territorios) && strlen($territorios) > 0 ){
+    $sql .= " and dvi.seq_dim_territorio in ($territorios)";
+}
+if( isset($anos) && $anos != 0 ){
+    $anos = explode(',', $anos);
+    $sql .= " and dt.num_ano between {$anos[0]} and {$anos[1]}";
+}
+$sql .= " order by dvi.seq_dim_territorio desc, dsc_localidade, dsc_grupo_idade, dvi.ind_genero, dt.num_ano;";
 //echo $sql;
 $result = $conn->query($sql);
 $titulo = '';
@@ -152,6 +164,6 @@ if( $result->num_rows > 0 ){
     $array['dados']['indicadores'] = $indicadores;
 }
 else{
-    $array['resultado'] = '<div>Sem dados</div>';
+    $array['resultado'] = '<div class="vazio">Não possui dados para a consulta realizada.</div>';
 }
 echo json_encode($array, JSON_UNESCAPED_UNICODE);

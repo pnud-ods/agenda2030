@@ -5,7 +5,8 @@ $array = array();
 $sql = "select dm.seq_dim_meta, dm.num_meta, dm.dsc_meta
           from $NAME_DW.dim_meta dm
          where dm.seq_dim_ods = $ods
-         order by dm.num_meta;";
+         order by substring_index(dm.num_meta, '.', -1) REGEXP '[0-9]+' desc,
+                  lpad(substring_index(dm.num_meta, '.', -1), 2, 0) asc;";
 $result = $conn->query($sql);
 while( $row = $result->fetch_assoc() ){
     echo '<tr>';

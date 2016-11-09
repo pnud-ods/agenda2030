@@ -1,5 +1,5 @@
 <?php
-$opcoes_menu = array(
+$OPCOES_MENU = array(
     array('label' => 'A Agenda 2030', 'link' => 'aagenda2030.php', 'title' => 'A Agenda 2030', 'side' => 'left'),
     array('label' => 'Indicadores', 'link' => 'consulta.php', 'title' => 'Consultar Indicador', 'side' => 'left'),
     array('label' => 'Biblioteca', 'link' => 'biblioteca.php', 'title' => 'Biblioteca de publicações', 'side' => 'left'),
@@ -10,7 +10,8 @@ $opcoes_menu = array(
 );
 
 function getHeader($ehAbertura = false, $mostraODSs = true){
-    global $opcoes_menu;
+    global $OPCOES_MENU;
+    global $NOME_PAGINA;
     $home = '.';
 ?>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
     <meta http-equiv="Content-Language" content='pt-BR' />
     <meta name="country" content="Brazil" />
     <meta name="geo.country" content="BR" />
-    <title>Agenda 2030</title>
+    <title>Agenda 2030<?php if( isset($NOME_PAGINA) ) echo " - $NOME_PAGINA"; ?></title>
     <meta name="robots" content="index, follow, noarchive" />
     <meta name="googlebot" content="noarchive" />
     <meta name="description" content="Plataforma online da Agenda 2030 para o Desenvolvimento Sustentável">
@@ -84,7 +85,7 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
             <div>
                 <ul class="nav navbar-nav">
                     <?php
-                        foreach($opcoes_menu as $opcao){
+                        foreach($OPCOES_MENU as $opcao){
                             if( $opcao['side'] != 'left')
                                 continue;
                             echo '<li class="menu-list">';
@@ -95,7 +96,7 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php
-                        foreach($opcoes_menu as $opcao){
+                        foreach($OPCOES_MENU as $opcao){
                             if( $opcao['side'] != 'right')
                                 continue;
                             echo '<li class="menu-list">';
@@ -188,27 +189,46 @@ function getHeader($ehAbertura = false, $mostraODSs = true){
 }
 
 function getFooter(){
-    global $opcoes_menu;
+    global $OPCOES_MENU;
 ?>
     <div class="footer">
         <div style="float:left;">
-            <p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
-                Plataforma Agenda 2030
-            </p>
+            <div class="label_footer">Plataforma Agenda 2030</div>
             <ul class="list-unstyled" style="color:#a0abb5;font-size:10pt">
             <?php
-                foreach($opcoes_menu as $opcao){
+                foreach($OPCOES_MENU as $opcao){
                     echo "<li><a title=\"{$opcao['title']}\" href=\"{$opcao['link']}\">{$opcao['label']}</a></li>";
                 }
             ?>
             </ul>
         </div>
-        <div style="float:right;">
-            <a target="_blank" href="http://www.undp.org/content/brazil/pt/home.html" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png" style="padding:10px 40px 0 0;"/></a>
-            <a target="_blank" href="http://www.ipea.gov.br/" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png"></a>
+        <div class="logos">
+            <div class="label_footer">Realização</div>
+            <a href="http://www.undp.org/content/brazil/pt/home.html" target="_blank" title="Ir para o site do PNUD"><img src="images/pnud_logo_white_tg.png"/></a>
+            <a href="http://www.ipea.gov.br/" target="_blank" title="Ir para o site do IPEA"><img src="images/ipea_logo_no_bg.png"></a>
+            <div class="label_footer">Parceiros Institucionais</div>
+            <div class="logosFooter">
+            <a href="http://www.petrobras.com.br/" target="_blank" title="Ir para site da Petrobras"><img src="images/logo_patrocinadores/petrobras.jpg" style="width:150px;"  alt="Petrobras"></a>
+            <a href="http://www.bnb.gov.br/" target="_blank" title="Ir para site do Banco do Nordeste"><img src="./images/logo_patrocinadores/banco_do_nordeste.jpg" style="width:110px;" alt="BNB"></a>
+                <a href="http://www.sebrae.com.br/" target="_blank" title="Ir para site do Sebrae"><img src="./images/logo_patrocinadores/sebrae.jpg" style="width:85px;" alt="Sebrae"></a>
+                <a href="http://www.furnas.com.br/" target="_blank" title="Ir para site de Furnas"><img src="./images/logo_patrocinadores/furnas.jpg" style="width: 64px;" alt="Furnas"></a>
+            </div>
+
+            <div class="label_footer">Apoio Institucional</div>
+            <a href="http://www.bb.com.br/" target="_blank" title="Ir para o sitem do Banco do Brasil"><img src="./images/logo_apoiadores/banco_do_brasil.jpg" style="width:200px;" alt="BB"/></a>
+            <a href="http://www.caixa.gov.br/" target="_blank" title="Ir para o sitem da Caixa"><img src="./images/logo_apoiadores/caixa.jpg" style="width:120px;" alt="Caixa"/></a>
+            <a href="http://www.brasil.gov.br/" target="_blank" title="Ir para o sitem do Governo Federal"><img src="./images/logo_apoiadores/governo_federal.png" style="width:120px;" alt="Governo Federal"/></a>
         </div>
         <div class="clear"></div>
     </div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-85959864-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
 <?php

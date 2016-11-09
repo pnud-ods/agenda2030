@@ -1,4 +1,5 @@
 <?php
+$NOME_PAGINA = 'Objetivo';
 include_once 'partes.php';
 include_once 'conectar.php';
 $ods = $_REQUEST['ods'];
@@ -7,10 +8,19 @@ $num_ods = str_pad($ods, 2, '0', STR_PAD_LEFT);
 //Busca os dados do ODS
 $sql = "select do.nom_ods, do.dsc_ods, do.dsc_resumo_ods, do.dsc_odm_relacionado
           from $NAME_DW.dim_ods do
-         where do.seq_dim_ods = $ods";
+         where do.seq_dim_ods = '$ods'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
+//caso o parametro do número do objetivo seja invalido, finaliza a página
+if( !isset($row) ){
+    getHeader();
+    echo '<div class="vazio" style="margin:30px;">Não foi localizado o ODS desejado.</div>';
+    getFooter();
+    die;
+}
+
+$NOME_PAGINA .= " $num_ods";
 getHeader();
 ?>
 <link href="css/tabela_dados.css" rel="stylesheet" type="text/css">
@@ -29,6 +39,8 @@ getHeader();
             url: 'get_indicadores.php?o=' + o + '&i_m=' + i_m + '&n_m=' + n_m
         }).done(function(retorno){
             $('#cx_metas').css('width', '40%');
+            var pos = $('.metas').offset().top;
+            $('html, body').stop().animate({scrollTop:pos}, '1000', 'swing');
             var indicadores = $('#indicadores');
             indicadores.css('width', '60%');
             indicadores.html(retorno);
@@ -106,7 +118,8 @@ getHeader();
                                         $sql = "select dm.seq_dim_meta, dm.num_meta, dm.dsc_meta
                                                   from $NAME_DW.dim_meta dm
                                                  where dm.seq_dim_ods = $ods
-                                                 order by dm.num_meta";
+                                                 order by substring_index(dm.num_meta, '.', -1) REGEXP '[0-9]+' desc,
+                                                          lpad(substring_index(dm.num_meta, '.', -1), 2, 0) asc";
                                         $result = $conn->query($sql);
                                         while($row = $result->fetch_assoc()){
                                             echo "<tr class=\"meta\" title=\"Exibir indicadores da meta\" onclick=\"clickMeta(this, $ods, {$row['seq_dim_meta']}, '{$row['num_meta']}');\">";

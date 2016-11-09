@@ -33,7 +33,7 @@ if( !mail($email, $assunto, $arquivo, $headers) ){
 }
 
 //Envio de e-mail para o destinatário
-$destino = 'matpamoreira@gmail.com';
+$destino = 'ods.pnud@gmail.com';
 $assunto = 'Novo Mensagem Cadastrada no Portal';
 $arquivo = "<html>
 				<body>

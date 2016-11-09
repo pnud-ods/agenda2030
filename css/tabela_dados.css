@@ -1,24 +1,34 @@
+#tabela{
+    overflow-x:auto;
+    margin:0 15px 30px;
+}
+#grafico{
+    margin-bottom:25px;
+}
+table.dados{
+    font-family:Roboto;
+    border:1px solid #267EC3;
+}
 .dados th{
     font-size:10px;
-    font-weight:normal;
+    font-weight:bold;
     text-align:center;
-    padding:0 4px;
+    padding:2px 4px;
+    background-color:#267EC3;
+    color:#FFF;
 }
 .dados tbody tr:hover td{
-    background-color:#DDD;
+    background-color:#E0F2FF;
 }
 .dados tbody td{
-    padding:5px 10px;
-    border-right:1px solid;
+    padding:10px;
+    border-bottom:1px solid #1F8CDF;
     text-align:center;
-    font-size:12px;
+    font-size:14px;
 }
 .dados td.rot{
     text-align:left!important;
 }
 .dados td.tp{
     white-space:pre;
-}
-.dados tbody tr td:last-child{
-    border-right:0;
 }

@@ -1,7 +1,7 @@
 <?php
+$NOME_PAGINA = 'Biblioteca';
 include_once 'partes.php';
 include_once 'conectar.php';
-
 getHeader();
 ?>
     <div class="row" style="background-color:#eeeeee">
