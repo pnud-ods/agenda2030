@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="93ae6a42-0354-4b54-bc9f-cde74e35f055" name="AWS PNUD" url="http://52.54.252.118">
+        <fileTransfer host="52.54.252.118" port="22" privateKey="C:\Users\Marcos\Google Drive\4mti\Plataforma PNUD - Agenda 2030\chaves de acesso EC2 - AWS\pnud.pem" rootFolder="/var/www/html/agenda2030" accessType="SFTP" username="ec2-user" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
