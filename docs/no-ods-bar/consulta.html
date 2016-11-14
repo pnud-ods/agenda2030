@@ -1,0 +1,306 @@
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/ods_colors.css">
+		<link rel="stylesheet" href="css/agenda.css">
+
+		<!-- Roboto Font Face from Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900&amp;lang=en" rel="stylesheet">
+
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>
+		<script src="js/agenda2030.js" type="text/javascript"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+		<!-- top menu -->
+			<div class="row top-menu-background top-menu-height">
+				<div class="col-xs-12">
+					
+					<div class="navbar-header">
+						<button aria-controls="bs-navbar" aria-expanded="true" class="navbar-toggle" data-target="#bsnavbar" data-toggle="collapse" type="button"> 
+							<span class="sr-only">Toggle navigation</span> 
+							<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+						</button>
+							<a href="http://www.undp.org/content/brazil/pt/home.html" target="_blank">
+								<img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
+							</a>
+					</div>
+					
+					<div class="collapse navbar-collapse">
+						
+						<ul class="nav navbar-nav"> 
+							<li class="menu-list" style="margin-left: 130px;"> 
+								<a href="index.html">Home</a> 							   
+							</li> 
+							<li class="menu-list"> 
+								<a href="aagenda2030.html">A Agenda 2030</a> 							   
+							</li> 
+							<li class="menu-list dropdown">
+								<a id="dLabel" class="dropdown-toggle" id="drop2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="dLabel" style="border:0px;">
+								   	<li>
+								   		<a href="publicacoes.html">Biblioteca</a>
+								   	</li>
+								   	<li>
+								   		<a href="noticias.html">Notícias</a>
+								   	</li>
+								   	<li>
+								   		<a href="videoteca.html">Videoteca</a>
+								   	</li>
+								   	<li>
+								   		<a href="faq.html">FAQ</a>
+								   	</li>
+								   	<li>
+								   		<a href="glossario.html">Glossário</a>
+								   	</li>
+							  	</ul>
+							</li>
+						</ul> 
+
+						<ul class="nav navbar-nav navbar-right" >
+							<li class="menu-list">
+								<a href="agenda.html">Agenda de Eventos</a>
+							</li>
+
+							<li class="menu-list">
+					          <a href="contato.html">Contato</a>
+					        </li>
+						</ul>
+
+					</div>
+
+				</div>
+			</div>
+		<!-- ./top menu -->
+
+		<!-- header -->
+			<div class="row header-background header-title-height font-white" style="padding-bottom: 30px;">
+				<div class="col-xs-12">
+					<!-- logo ods -->
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<a href="index.html">
+									<img src="images/ods_logo.png" style="margin-top:-30px;">
+								</a>
+							</div>
+						</div>
+					<!-- ./logo ods -->
+
+					<!-- title -->
+						<div class="row">
+							<div class="col-xs-6 col-xs-offset-3 text-center">
+								<h2 class="title-font text-white-shadow" style="font-size:26pt;">
+									Consulta
+								</h2>
+								<p  class="subtitle-header">
+									Consulte os indicadores dos Objetivos do Desenvolvimento Sustentável
+								</p>
+							</div>
+						</div>
+					<!-- ./title -->
+
+				</div>
+			</div>
+		<!-- ./header -->
+
+		<!-- info data container -->
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+				
+					<!-- consulta container -->
+						<div style="padding:30px 0 400px 0;">
+							<div class="row">
+								<div class="col-xs-12">
+									<ul class="nav nav-tabs">
+										<li role="presentation" class="active"><a href="#">Consulta</a></li>
+										<li role="presentation" class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+											  Downloads <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu" id="menu2" aria-labelledby="drop5"> 
+												<li><a href="#">Mundo</a></li> 
+												<li><a href="#">América Latina</a></li> 
+												<li><a href="#">Brasil</a></li> 
+											</ul> 
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="row" style="padding-top:30px;">
+								<div class="col-xs-12">
+									<ul class="nav nav-pills" role="tablist"> 
+										<li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 
+											Escolha um Território <span class="caret"></span> </a> 
+											<ul class="dropdown-menu" id="menu2" aria-labelledby="drop5"> 
+												<li><a href="#">Mundo</a></li> 
+												<li><a href="#">América Latina</a></li> 
+												<li><a href="#">Brasil</a></li> 
+											</ul> 
+										</li>
+
+										<li role="presentation"> <a role="button" aria-haspopup="true" aria-expanded="true" > 
+											<span data-toggle="modal" data-target=".bs-example-modal-lg">Escolha um Indicador <span class="caret"></span> </span> 
+											</a>
+											
+										</li>
+										<li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop5" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 
+											Escolha um Período <span class="caret"></span> </a> 
+											<ul class="dropdown-menu" id="menu2" aria-labelledby="drop5"> 
+												<li><a href="#">2014-2015</a></li> 
+												<li><a href="#">2013-2014</a></li> 
+												<li><a href="#">2012-2013</a></li> 
+												<li><a href="#">2011-2012</a></li> 
+												<li><a href="#">2010-2011</a></li> 
+												<li><a href="#">2009-2010</a></li> 
+												<li><a href="#">2008-2009</a></li> 
+												<li><a href="#">2007-2008</a></li> 
+												<li><a href="#">2006-2007</a></li> 
+												<li><a href="#">2005-2006</a></li> 
+												<li><a href="#">2004-2005</a></li> 
+												<li><a href="#">2003-2004</a></li> 
+												<li><a href="#">2002-2003</a></li> 
+												<li><a href="#">2001-2002</a></li> 
+											</ul> 
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- modal container -->
+								<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+											<div class="modal-header" style="border:0px;margin-bottom:-25px;">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												
+											</div>
+											<div class="modal-body" style="padding-bottom:40px;">
+												<table style="width:100%;">
+													<tr style="border-bottom: 1px solid #ededed;">
+														<th style="padding-bottom:10px;">
+														Objetivos
+														</th>
+														<th>
+														Metas
+														</th>
+														<th>
+														Indicadores
+														</th>
+													</tr>
+													<tr style="vertical-align: top;">
+														<td style="width:33%;">
+															<table class="consulta-table-grid" style="padding-top:10px;">
+																<tr>
+																	<td class="consulta-td-cell">1. Erradicação da Pobreza</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">2. Fome Zero e Agricultura Sustentável</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">3. Saúde e Bem-Estar</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">4. Educação de Qualidade
+																	</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">5. Igualdade de Gênero
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td style="width:33%;">
+															<table class="consulta-table-grid" style="padding-top:10px;">
+																<tr >
+																	<td class="consulta-td-cell">5.1) Acabar com todas as formas de discriminação contra todas as mulheres e meninas em toda parte</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">5.2) Eliminar todas as formas de violência contra todas as mulheres e meninas nas esferas públicas e privadas, incluindo o trafico e exploração sexual e de outros tipos</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">5.3) Eliminar todas as práticas nocivas, como os casamentos prematuros, forçados e de crianças e mutilações genitais femininas</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">5.4) Reconhecer e valorizar o trabalho de assistência e doméstico não remunerado, por meio da disponibilização de serviços públicos, infraestrutura e políticas de proteção social, bem como a promoção da responsabilidade compartilhada dentro do lar e da família, conforme os contextos nacionais
+																	</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">5.5) Garantir a participação plena e efetiva das mulheres e a igualdade de oportunidades para a liderança em todos os níveis de tomada de decisão na vida política, econômica e pública
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td style="width:33%;">
+															<table class="consulta-table-grid" style="padding-top:10px;">
+																<tr>
+																	<td class="consulta-td-cell">Proporção de material reciclado em atividades industriais</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">Investimento público em  infraestrutura como proporção do PIB</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">Intensidade de emissões do setor de infraestrutura: a razão entre o pib e as emissões de Gee dos setores de energia, transporte, resíduos sólidos e efluentes domésticos e industriais</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">Proporção de material reciclado em atividades industriais
+																	</td>
+																</tr>
+																<tr>
+																	<td class="consulta-td-cell">Investimento público em  infraestrutura como proporção do PIB
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- ./modal container -->
+						</div>
+					<!-- ./consulta container -->
+
+
+				</div>
+			</div>
+
+		<!-- ./info data container -->
+
+		<!-- footer -->
+			<div class="row" style="background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
+				<div class="col-xs-5 col-xs-offset-1">
+					<p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
+					Plataforma Agenda 2030
+					</p>
+					<ul class="list-unstyled" style="color:#a0abb5;font-size:10pt">
+						<li>A Agenda 2030</li>
+						<li>Os 17 ODS</li>
+						<li>Os Indicadores</li>
+						<li>Quem Somos</li>
+						<li>Dúvidas Frequentes</li>
+						<li>Agenda de Eventos</li>
+						<li>Contato</li>
+					</ul>
+				</div>
+				<div class="col-xs-6 text-right">
+					<div style="display: inline-block;">
+						<img src="images/pnud_logo_no_bg.png" style="padding:30px;">
+						<img src="images/ipea_logo_no_bg.png" style="padding:30px;">				
+					</div>
+				</div>
+
+			</div>
+		<!-- ./footer -->

@@ -69,7 +69,7 @@ button, a, a:active, a:focus, a:hover{
 	font-size:16pt;font-weight:400;
 }
 .text-white-shadow{
-	text-shadow:0 0 18px rgba(255, 255, 255, 0.58);
+	text-shadow:0 0 18px rgba(255, 255, 255, 0.38);
 }
 .font-white{
 	color:#fff;
