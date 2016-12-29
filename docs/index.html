@@ -12,9 +12,12 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/ods_colors.css">
 		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/hover.css">
 
 		<!-- Roboto Font Face from Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900&amp;lang=en" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900&amp;lang=en" rel="stylesheet"> -->
+
+		<link href="https://fonts.googleapis.com/css?family=Alegreya|Allerta|Eczar|Lato|Vollkorn|Work+Sans|Rubik|Open+Sans:300,400,600,700|Product+Sans:400|Roboto:300,400,700,900" rel="stylesheet">
 
 		
 
@@ -29,93 +32,95 @@
 
 
 	</head>
-	<body>
+	<body style="overflow-x: hidden;">
 		<!-- top menu -->
-			<div class="row top-menu-background top-menu-height">
-				<div class="col-xs-12">
+			<div class=" top-menu-background top-menu-height">
+				<div class="navbar-header">
+					<button aria-controls="bs-navbar" aria-expanded="true" class="navbar-toggle" data-target="#bsnavbar" data-toggle="collapse" type="button"> 
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+					</button>
+						<a href="http://www.undp.org/content/brazil/pt/home.html" target="_blank">
+							<img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
+						</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" style="font-size:12pt;font-weight: bold;font-family: 'Rubik', Helvetica, Arial, sans-serif;">
 					
-					<div class="navbar-header">
-						<button aria-controls="bs-navbar" aria-expanded="true" class="navbar-toggle" data-target="#bsnavbar" data-toggle="collapse" type="button"> 
-							<span class="sr-only">Toggle navigation</span> 
-							<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
-						</button>
-							<a href="http://www.undp.org/content/brazil/pt/home.html" target="_blank">
-								<img src="images/pnud_logo_white_bg.png" style="position:absolute;left:60px;">
-							</a>
-					</div>
-					
-					<div class="collapse navbar-collapse">
-						
-						<ul class="nav navbar-nav"> 
-							<li class="menu-list" style="margin-left: 130px;"> 
-								<a href="aagenda2030.html">A Agenda 2030</a> 							   
-							</li> 
-							<li class="menu-list dropdown">
-								<a id="dLabel" class="dropdown-toggle" id="drop2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
-								<ul class="dropdown-menu" aria-labelledby="dLabel" style="border:0px;">
-								   	<li>
-								   		<a href="publicacoes.html">Biblioteca</a>
-								   	</li>
-								   	<li>
-								   		<a href="noticias.html">Notícias</a>
-								   	</li>
-								   	<li>
-								   		<a href="videoteca.html">Videoteca</a>
-								   	</li>
-								   	<li>
-								   		<a href="faq.html">FAQ</a>
-								   	</li>
-								   	<li>
-								   		<a href="glossario.html">Glossário</a>
-								   	</li>
-							  	</ul>
-							</li>
-						</ul> 
+					<ul class="nav navbar-nav"> 
+						<li class="menu-list" style="margin-left: 130px;"> 
+							<a href="aagenda2030.html">A Agenda 2030</a> 							   
+						</li> 
+						<li class="menu-list dropdown">
+							<a id="dLabel" class="dropdown-toggle" id="drop2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
+							<ul class="dropdown-menu" aria-labelledby="dLabel" style="border:0px;">
+							   	<li>
+							   		<a href="publicacoes.html">Biblioteca</a>
+							   	</li>
+							   	<li>
+							   		<a href="noticias.html">Notícias</a>
+							   	</li>
+							   	<li>
+							   		<a href="videoteca.html">Videoteca</a>
+							   	</li>
+							   	<li>
+							   		<a href="faq.html">FAQ</a>
+							   	</li>
+							   	<li>
+							   		<a href="glossario.html">Glossário</a>
+							   	</li>
+						  	</ul>
+						</li>
+					</ul> 
 
-						<ul class="nav navbar-nav navbar-right" >
-							<li class="menu-list">
-								<a href="agenda.html">Agenda de Eventos</a>
-							</li>
+					<ul class="nav navbar-nav navbar-right" >
+						<li class="menu-list">
+							<a href="agenda.html">Agenda de Eventos</a>
+						</li>
 
-							<li class="menu-list">
-					          <a href="contato.html">Contato</a>
-					        </li>
-						</ul>
-
-					</div>
+						<li class="menu-list">
+				          <a href="contato.html">Contato</a>
+				        </li>
+					</ul>
 
 				</div>
+
 			</div>
 		<!-- ./top menu -->
 
 		<!-- header -->
-			<div class="row header-background header-landing-height font-white">
+			<div class="header-background-3 header-landing-height font-white">
 				<div class="col-xs-12">
 					<!-- logo ods -->
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-xs-12 text-center">
 								<a href="index.html">
 									<img src="images/ods_logo_larger.png" style="margin-top:-30px;" class="animated rotateIn">
 								</a>
 							</div>
-						</div>
+						</div> -->
 					<!-- ./logo ods -->
 
 					<!-- title -->
-						<div class="row">
-							<div class="col-xs-6 col-xs-offset-3 text-center">
+						<div class="row" style="padding-bottom:80px;margin-top:110px;">
+							<div class="col-lg-7 col-lg-offset-3 col-sm-9 col-sm-offset-1 text-right">
 								<h1 class="title-font text-white-shadow">
-									Plataforma Agenda 2030
+									<span style="background-color: #18629c;padding: 10px;padding-left: 30px;padding-right: 77px;">
+										Plataforma Agenda 2030
+									</span>
 								</h1>
-								<p class="subtitle-font">
+								<p class="subtitle-font" style="background-color: rgba(255, 255, 255, 0.79);color: #1d4361;padding: 20px;margin-top: 22px;font-weight: bold;padding-right: 84px;">
 									Até 2030, acompanhe a evolução das metas e indicadores dos Objetivos do Desenvolvimento Sustentável (ODS)
 								</p>
+							</div>
+							<div class="col-xs-2">
+								<img src="images/logo_bigger.png" class="animated rotateIn" style="margin-left:-100px;margin-top:-12px;">
 							</div>
 						</div>
 					<!-- ./title -->
 
 					<!-- base icons -->
-						<div class="row" style="margin: 50px 20px 20px 20px;">
+						<!-- <div class="row" style="margin: 50px 20px 20px 20px;">
 							<div class="col-xs-4 text-center" onmouseenter="changeText('Conheça mais sobre a Agenda 2030 e os ODS', this);" onmouseleave="resetText('Informações', this);">
 								<img class="img-circle animated fadeInLeft" src="images/info_icon_header_blue.png" alt="" width="120" height="120">
 								<h2 class="subtitle-font-bigger header-icons info_text animated flipInX" style="min-height:60px;">
@@ -134,15 +139,16 @@
 									Participe
 								</h2>
 							</div>
-						</div>
+						</div> -->
 					<!-- ./base icons -->
 
 					<!-- call for action -->
-					<div class="row" style="min-height:40px;background-color: #408dcc;">
-						<div class="col-xs-12 text-center font-white">
-							<h4 style="font-weight:300;line-height:40px;">
-								Para saber mais, selecione um ODS abaixo:
-							</h4>
+					<div  style="" class="row" id="background_texto_descricao_objetivo">
+						<div class="col-xs-12 text-center font-white" style="display: table;min-height:80px;padding:0px 30px;">
+							<div style="font-size:14pt;font-weight:300;    padding: 10px;display: table-cell; vertical-align: middle;">
+								<span id="all_texto_objetivo">Objetivo <span id="texto_objetivo">1</span>:</span>
+								<span id="texto_descricao_objetivo" style="font-family:'Rubik',Helvetica, Arial, sans-serif">Para saber mais, selecione um ODS abaixo:</span>
+							</div>
 						</div>
 					</div>
 					<!-- ./call for action -->
@@ -161,31 +167,31 @@
 						<table style="width:100%:">
 							<tr>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/01.png" alt=""  >
+									<img onmouseover="changeAttributes(1);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/01.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/02.png" alt=""  >
+									<img onmouseover="changeAttributes(2);" onmouseout="changeAttributes(0);"  class="img-responsive   hvr-grow" src="images/ods_icons/02.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/03.png" alt=""  >
+									<img onmouseover="changeAttributes(3);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/03.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/04.png" alt=""  >
+									<img onmouseover="changeAttributes(4);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/04.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/05.png" alt=""  >
+									<img onmouseover="changeAttributes(5);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/05.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/06.png" alt=""  >
+									<img onmouseover="changeAttributes(6);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/06.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/07.png" alt=""  >
+									<img onmouseover="changeAttributes(7);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/07.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/08.png" alt=""  >
+									<img onmouseover="changeAttributes(8);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/08.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/09.png" alt=""  >
+									<img onmouseover="changeAttributes(9);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/09.png" alt=""  >
 								</td>
 							</tr>
 						</table>
@@ -199,31 +205,31 @@
 						<table style="width:100%:">
 							<tr>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/10.png" alt=""  >
+									<img onmouseover="changeAttributes(10);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/10.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/11.png" alt=""  >
+									<img onmouseover="changeAttributes(11);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/11.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/12.png" alt=""  >
+									<img onmouseover="changeAttributes(12);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/12.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/13.png" alt=""  >
+									<img onmouseover="changeAttributes(13);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/13.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/14.png" alt=""  >
+									<img onmouseover="changeAttributes(14);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/14.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/15.png" alt=""  >
+									<img onmouseover="changeAttributes(15);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/15.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/16.png" alt=""  >
+									<img onmouseover="changeAttributes(16);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/16.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/17.png" alt=""  >
+									<img onmouseover="changeAttributes(17);" onmouseout="changeAttributes(0);" class="img-responsive hvr-grow" src="images/ods_icons/17.png" alt=""  >
 								</td>
 								<td class="ods-logo-container">
-									<img class="img-responsive" src="images/ods_icons/ods_logo_icon.png"  >
+									<img class="img-responsive hvr-grow" src="images/ods_icons/ods_logo_icon.png"  >
 								</td>
 							</tr>
 						</table>
@@ -255,132 +261,267 @@
 		<!-- ./ods container -->
 
 		<!-- info data container -->
-			<div class="row">
+			<div class="">
 				<div class="col-xs-12">
-				
-					<!-- about agenda -->
-						<div class="row">
-							<div class="col-xs-12">
-
-								<div class="row">
-									<div class="col-xs-12 text-left" style="padding: 40px 0px 20px 120px;">
-										<h2>Entendendo a Agenda 2030</h2>
-									</div>
+					<table class="video-table">
+						<tr>
+							<td width="50%" style="padding:50px;">
+								<iframe width="100%" height="100%" src="https://www.youtube.com/embed/YIxEw-zKeM4" frameborder="0" allowfullscreen></iframe>
+							</td>
+							<td  width="50%" style="padding:85px 75px 60px 0px;">
+								<div style="font-family: 'Rubik',Helvetica,Arial,sans-serif;text-align: justify;color:#696969;font-size:12pt;line-height:16pt;">
+									<p>
+										<span style="color:#407f46;font-size:26pt;font-weight: bold;margin-left:-5px;">
+											  O que é a Agenda 2030
+										</span>
+									</p>
+									<p style="margin-top:40px;line-height:18pt;">
+									A Agenda 2030 foi criada para colocar o mundo em um caminho mais sustentável e resiliente. A Agenda é um plano de ação para as pessoas, o planeta e a prosperidade.
+									</p>
+									<p style="margin-top:20px;line-height:18pt;">
+									Foi adotada por 193 países-membros das Nações Unidas, inclusive o Brasil, na Cúpula de Desenvolvimento Sustentável, em setembro de 2015. Mas ela foi definida em um amplo processo participativo lançado na Rio+20, em 2012.
+									</p>
+									<p style="margin-top:20px;line-height:18pt;">
+									Os Objetivos do Desenvolvimento Sustentável, ou ODS, são integrados e indivisíveis, e mesclam, de forma equilibrada, as três dimensões do desenvolvimento sustentável: a econômica, a social e a ambiental. Eles deverão ser alcançados até o ano 2030, o que dá o nome a Agenda.
+									</p>
 								</div>
-								
-								<div class="row" style="margin-top:30px;">
-									<div class="col-xs-4 text-center about-agenda-icon-background">
-										<span style="margin:auto;">
-											<img src="images/about_agenda/icon_01.png" alt="" width="90" height="90" class="timeline-icon" style="opacity:0;">
-										</span>
-									</div>
-									<div class="col-xs-8 about-agenda-text" style="opacity:0;">
-										<span style="margin:auto;">
-											A Agenda 2030 foi criada para colocar o mundo em um caminho mais sustentável e resiliente. A Agenda é um plano de ação para as pessoas, o planeta e a prosperidade.
-										</span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-4 text-center about-agenda-icon-background">
-										<span style="margin:auto;">
-											<img src="images/about_agenda/icon_02.png" alt="" width="90" height="90" class="timeline-icon" style="opacity:0;">
-										</span>
-									</div>
-									<div class="col-xs-8 about-agenda-text" style="opacity:0;">
-										<span style="margin:auto;">
-											Foi adotada por 193 países-membros das Nações Unidas, inclusive o Brasil, na Cúpula de Desenvolvimento Sustentável, em setembro de 2015. Mas ela foi definida em um amplo processo participativo lançado na Rio+20, em 2012.
-										</span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-4 text-center about-agenda-icon-background">
-										<span style="margin:auto;">
-											<img  src="images/about_agenda/icon_03.png" alt="" width="90" height="90" class="timeline-icon" style="opacity:0;">
-										</span>
-									</div>
-									<div class="col-xs-8 about-agenda-text" style="opacity:0;">
-										<span style="margin:auto;">
-											A Agenda consiste em uma Declaração, 17 Objetivos de Desenvolvimento Sustentável (os ODS) e suas 169 metas, bem como uma seção sobre meios de implementação e de parcerias globais, e um roteiro para acompanhamento e revisão. Os ODS e suas metas serão acompanhados por meio de indicadores. 
-										</span>
-									</div>
-								</div>
-								<div class="row post">
-									<div class="col-xs-4 text-center about-agenda-icon-background">
-										<span style="margin:auto;">
-											<img src="images/about_agenda/icon_04.png" alt="" width="90" height="90" class="timeline-icon" style="opacity:0;">
-										</span>
-									</div>
-									<div class="col-xs-8 about-agenda-text" style="opacity:0;">
-										<span style="margin:auto;">
-											Esses objetivos são integrados e indivisíveis, e mesclam, de forma equilibrada, as três dimensões do desenvolvimento sustentável: a econômica, a social e a ambiental. Eles deverão ser alcançados até o ano 2030, o que dá o nome a Agenda.
-										</span>
-									</div>
-								</div>
-								<div class="row post">
-									<div class="col-xs-4 text-center about-agenda-icon-background" style="padding-bottom: 0px;">
-										<span style="margin:auto;">
-											<img src="images/about_agenda/icon_05.png" alt="" width="90" height="90" class="timeline-icon" style="opacity:0;">
-										</span>
-									</div>
-									<div class="col-xs-8 about-agenda-text" style="opacity:0;">
-										<span style="margin:auto;">
-											A Plataforma Agenda 2030 vai ajudar a acompanhar o caminho que está sendo feito para alcançarmos esses objetivos, com vistas a melhorar a vida de todo(a)s e se ter um mundo melhor.
-										</span>
-									</div>
-								</div>
-
-								<div class="row post" style="margin:60px 0px;">
-									<div class="col-xs-12 text-center">
-										<span class="blue-customized-button">
-											Entenda melhor a Agenda 2030
-										</span>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					<!-- ./about agenda -->
-
-					<!-- about ods -->
-						<div style="background-color: #f8f8f8;padding-bottom: 50px;">
-							<div class="row" style="padding:40px;">
-								<div class="col-xs-12 text-center">
-
-									<h2>Os 17 Objetivos, suas Metas e Indicadores</h2>
-								</div>
-							</div>
-							<div class="row" style="background-color: #f8f8f8;">
-								<div class="col-xs-5 col-xs-offset-1 text-left about-ods-text">
-									<span style="margin:auto;">
-										<p>
-										Com a experiência prévia dos Objetivos de Desenvolvimento do Milênio - ODM (em vigor de 2000 a 2015), aprendeu-se que o estabelecimento de objetivos é um eficiente mecanismo para alcançar melhores resultados de desenvolvimento, e que esses compromissos serão acompanhados pela ação. Objetivos claros geram resultados claros. Cada objetivo possui um conjunto de metas universalmente aplicáveis. Os indicadores são dados quantitativos e/ou qualitativos que, juntos, definirão se uma meta está sendo cumprida.
-										</p>
-										<p>
-										Os ODS são a primeira agenda universal do mundo para o desenvolvimento sustentável, e isso significa que todas as nações – desenvolvidas e em desenvolvimento – serão convidadas a agir em seus próprios países.
-										</p>
-										<p style="padding-top:60px;">
-											<span class="blue-customized-button">
-												Comece selecionando um ODS aqui
-											</span>
-										</p>
-									</span>							
-								</div>
-								<div class="col-xs-6 text-center" style="display:flex;min-height:410px;">
-									<span style="margin:auto;">
-										<img src="images/about_ods/infographic.png" alt="" class="infographic_ods">			
-									</span>
-								</div>
-							</div>
-						</div>
-					<!-- ./about od -->
-
+								<p style="margin-top: 38px;font-size: 12pt;font-weight: bold;color: #407f46;">
+									<a type="submit" class="blue-customized-button-plus" style="position:relative;left:-10px;background-color:#407f46;">Clique aqui para conhecer mais <span class="glyphicon glyphicon-chevron-right"></span></a>
+								</p>
+							</td>
+						</tr>
+					</table>
 				</div>
+
+				<!-- <div class="col-xs-6 text-center">
+					<div style="padding:40px;">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/YIxEw-zKeM4" frameborder="0" allowfullscreen></iframe>
+					</div>
+						
+				</div>
+
+				<div class="col-xs-6" style="padding:50px;">
+
+					<div class="row">
+						<div class="col-xs-12" style="font-size: 12pt;color: #777;">
+							<p>
+								<span style="background-color:#18629c;color:#fff;font-size:16pt;padding:10px;">
+									O que é a Agenda 2030
+								</span>
+							</p>
+							<p style="margin-top:30px;">
+							A Agenda 2030 foi criada para colocar o mundo em um caminho mais sustentável e resiliente. A Agenda é um plano de ação para as pessoas, o planeta e a prosperidade.
+							</p>
+							<p>
+							Foi adotada por 193 países-membros das Nações Unidas, inclusive o Brasil, na Cúpula de Desenvolvimento Sustentável, em setembro de 2015. Mas ela foi definida em um amplo processo participativo lançado na Rio+20, em 2012.
+							</p>
+							
+							<p style="margin-top:50px;">
+								<span style="background-color:#18629c;color:#fff;font-size:16pt;padding:10px;">
+									Entendendo os ODS
+								</span>
+							</p>
+							<p style="margin-top:30px;">
+							Os Objetivos do Desenvolvimento Sustentável, ou ODS, são integrados e indivisíveis, e mesclam, de forma equilibrada, as três dimensões do desenvolvimento sustentável: a econômica, a social e a ambiental. Eles deverão ser alcançados até o ano 2030, o que dá o nome a Agenda.
+							</p>
+						</div>
+					</div>
+
+				
+
+				</div> -->
 			</div>
 
 		<!-- ./info data container -->
 
+	<div class="">
+		<div class="col-xs-12" style="padding:0px 60px;">
+			<hr style="margin-top:10px;">
+		</div>
+	</div>
+
+	<div>
+
+		
+		<div class="row" style="margin-bottom: 0px;margin:0px;">
+			<div class="col-xs-12 text-left" style="margin-left:57px;margin-top:20px;">
+				<span style="color:#18629c;font-size:26pt;padding:10px;font-weight: bold;margin-left:-20px;font-family: 'Rubik', Helvetica, Arial, sans-serif;font-weight: bold;">
+					Publicações da nossa Biblioteca <a type="submit" class="blue-customized-button-plus" style="position:relative;top:-6px;left:10px;">Veja outras publicações</a>
+				</span>
+			</div>
+		</div>
+
+		<div class="row" style="margin:0px;">
+			<div class="col-xs-12" style="padding:10px 40px;">
+
+				<div class="col-xs-4">
+					<div style="padding:0px;border-radius: 0px;border:0px;padding-bottom: 100%;">
+						<div class="square-publication-1-background" style="position:absolute;left:5%;top:5%;width:90%;height:90%;">
+							<!-- <img src="images/square_children.jpg" /> -->
+						</div>
+						<div style="position:absolute;left:5%;top:5%;width:90%;height:90%;background:linear-gradient(rgba(0, 0, 0, 0.68), rgba(22, 105, 138, 0.68), rgb(25, 80, 99) 100%);">
+							<div style="position:absolute;bottom:10px;padding:10px 30px;margin-bottom:0px;color:#fff;font-family: 'Rubik';">
+								
+								<p style="font-size: 18pt;font-weight: bold;">
+									Os desafios da Agenda
+								</p>
+								<p style="font-size: 14pt;font-weight: 200;font-family: 'Helvetica',Arial,sans-serif;">
+									Como estamos nos preparando para os principais desafios propostos pelos nosso líderes mundial para a Agenda 2030
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-4">
+					<div style="padding:0px;border-radius: 0px;border:0px;padding-bottom: 100%;">
+						<div class="square-publication-2-background" style="position:absolute;left:5%;top:5%;width:90%;height:90%;">
+							<!-- <img src="images/square_children.jpg" /> -->
+						</div>
+						<div style="position:absolute;left:5%;top:5%;width:90%;height:90%;background:linear-gradient(rgba(0, 0, 0, 0.68), rgba(22, 105, 138, 0.68), rgb(25, 80, 99) 100%);">
+							<div style="position:absolute;bottom:10px;padding:10px 30px;margin-bottom:0px;color:#fff;font-family: 'Rubik';">
+								
+								<p style="font-size: 18pt;font-weight: bold;">
+									As mulheres e os ODS
+								</p>
+								<p style="font-size: 14pt;font-weight: 200;font-family: 'Helvetica',Arial,sans-serif;">
+									Como estamos nos preparando para os principais desafios propostos pelos nosso líderes mundial para a Agenda 2030
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-4">
+					<div style="padding:0px;border-radius: 0px;border:0px;padding-bottom: 100%;">
+						<div class="square-publication-3-background" style="position:absolute;left:5%;top:5%;width:90%;height:90%;">
+							<!-- <img src="images/square_children.jpg" /> -->
+						</div>
+						<div style="position:absolute;left:5%;top:5%;width:90%;height:90%;background:linear-gradient(rgba(0, 0, 0, 0.68), rgba(22, 105, 138, 0.68), rgb(25, 80, 99) 100%);">
+							<div style="position:absolute;bottom:10px;padding:10px 30px;margin-bottom:0px;color:#fff;font-family: 'Rubik';">
+								
+								<p style="font-size: 18pt;font-weight: bold;">
+									Preparando gerações
+								</p>
+								<p style="font-size: 14pt;font-weight: 200;font-family: 'Helvetica',Arial,sans-serif;">
+									Como estamos nos preparando para os principais desafios propostos pelos nosso líderes mundial para a Agenda 2030
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<!-- <div class="row">
+			<div class="col-xs-12" style="padding:0px 60px;">
+				<hr style="margin-top:10px;">
+			</div>
+		</div>
+ -->
+		<div class="row" style="margin:0px;margin-top:40px;background-color:#f6f6f6;padding-bottom:90px;padding-top:50px;">
+			<div class="col-xs-7" style="padding:0px 35px 0px 75px;">
+				<p>
+					<!-- <span style="background-color:#f26a2e;color:#fff;font-size:20pt;padding:10px;font-weight: bold;padding-right: 15px;">
+						<span class="glyphicon glyphicon-calendar"  style="padding:5px;font-size:18pt;"></span> Eventos
+					</span> -->
+					<span style="color:#ef402d;font-size:26pt;padding:10px;font-weight: bold;margin-left:-10px;font-family: 'Rubik', Helvetica, Arial, sans-serif;font-weight: bold;">
+						Agenda de Eventos <a type="submit" class="blue-customized-button-plus" style="position:relative;top:-6px;left:10px;background-color:#ef402d;">Veja outros eventos</a>
+					</span>
+				</p>
+				<p style="font-size: 18pt;margin-top: 50px;font-family: 'Rubik';color: #636363;">
+					<span class="glyphicon glyphicon-calendar" style="font-size:14pt;"></span> 12/02/2017: Conferência do Clima da ONU
+				</p>
+				<p style="margin-top:-5px;">
+					Aqui vai um reseumo sobre a conferência e o que irá acontecer e algumas informações extra a respeito de outras coisas e assuntos. Mais Informações
+				</p>
+				<hr>
+				<p style="font-size: 18pt;margin-top: 50px;font-family: 'Rubik';color: #636363;">
+					<span class="glyphicon glyphicon-calendar" style="font-size:14pt;"></span> 12/02/2017: Encontro das Mulheres Líderes
+				</p>
+				<p style="margin-top:-5px;">
+					Aqui vai um reseumo sobre a conferência e o que irá acontecer. Mais Informações
+				</p>
+				<hr>
+				<p style="font-size: 18pt;margin-top: 50px;font-family: 'Rubik';color: #636363;">
+					<span class="glyphicon glyphicon-calendar" style="font-size:14pt;"></span> 12/02/2017: Congresso sobre Educação Inclusiva
+				</p>
+				<p style="margin-top:-5px;">
+					Aqui vai um reseumo sobre a conferência e o que irá acontecer e algumas informações extra a respeito de outras coisas e assuntos. Mais Informações
+				</p>
+				<hr>
+			</div>
+			<div class="col-xs-5" style="padding:0px 95px 0px 35px;">
+				<p>
+					<span style="color:#bf8d2c;font-size:26pt;padding:10px;font-weight: bold;margin-left:-10px;font-family: 'Rubik', Helvetica, Arial, sans-serif;font-weight: bold;">
+						Envie sua mensagem
+					</span>
+				</p>
+
+				<div class="panel" style="padding-bottom: 30px;padding-top:30px;margin-top:20px;">
+				  	<!-- <div class="row">
+				  		<div class="col-xs-10 col-xs-offset-1" style="padding: 30px 10px;">
+					  		<table>
+					  			<tr style="vertical-align: middle;">
+					  				<td>
+					  					<img src="images/ods_logo.png" style="height:40px;"> 
+					  				</td>
+					  				<td style="padding-left: 10px;">
+					  					<span style="font-size:16pt;font-weight: bold;">Contato</span>
+					  				</td>
+					  			</tr>
+					  		</table>
+				  		</div>
+				 	</div> -->
+				 	<div class="row">
+				 		<div class="col-xs-10 col-xs-offset-1">
+				 			<form>
+								<div class="form-group">
+									<label>Seu nome</label>
+									<input type="text" class="form-control contato-form-no-border" placeholder="Escreva seu nome">
+								</div>
+								<div class="form-group">
+									<label>Seu e-mail</label>
+									<input type="email" class="form-control  contato-form-no-border" placeholder="Escreva seu email">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputFile">Sua mensagem:</label>
+									<textarea class="form-control contato-form-no-border" rows="5"></textarea>
+								</div>
+								<div class="row" style="margin-top:30px;">
+									<div class="col-xs-12">
+										<a type="submit" class="blue-customized-button" style="background-color: #bf8d2c;">Enviar</a>
+									</div>
+								</div>
+							</form>
+				 		</div>
+				 	</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row" style="margin:0px;background: rgba(67, 189, 171, 0.28);min-height:250px;background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.8) 100%), url(images/events_5.jpg);background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.8) 100%), url(images/events_5.jpg);background-size:cover;background-repeat:no-repeat;background-position: center center;">
+		<div class="col-xs-12 text-center">
+			<div style="position:relative;min-height:250px;width:100%;padding-top:60px;">
+				<div>
+					<span style="color:#fff;font-size:26pt;padding:10px;font-weight: bold;margin-left:-10px;font-family: 'Rubik', Helvetica, Arial, sans-serif;"> Assine nossa newsletter e fique por dentro da Agenda 2030 </span>
+				</div>
+
+				<div>
+					<input type="text" style="margin-top:20px;font-size:16pt;background-color: #fff;padding:20px 30px;border-radius:25px;height:50px;width:330px;border:0px;" placeholder="Deixe seu email">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 		<!-- footer -->
-			<div class="row" style="background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
+			<div class="row" style="margin:0px;background-color:#204762;min-height:200px;padding:40px 40px 40px 0; ">
 				<div class="col-xs-5 col-xs-offset-1">
 					<p style="color:#e4f0f7;font-weight:bold;font-size:12pt;">
 					Plataforma Agenda 2030

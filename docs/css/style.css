@@ -6,11 +6,39 @@
 	min-height:50px;
 }
 
-.header-background {
+.header-background-1 {
 	background: #1c65a3; /* fallback for old browsers */
 	/*background: -webkit-linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* Chrome 10-25, Safari 5.1-6 */
 	/*background: linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background:url('../images/bg_blue.jpg');
+	background:url('http://www.borgenmagazine.com/wp-content/uploads/2015/06/children.jpg');
+	/*background:url('http://i.huffpost.com/gen/3383078/images/o-SYRIAN-REFUGEE-CRISIS-facebook.jpg');*/
+	/*background:url('../images/bg_girl.jpg');*/
+	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center bottom;
+}
+
+.header-background-2 {
+	background: #1c65a3; /* fallback for old browsers */
+	/*background: -webkit-linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* Chrome 10-25, Safari 5.1-6 */
+	/*background: linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	/*background:url('http://www.borgenmagazine.com/wp-content/uploads/2015/06/children.jpg');*/
+	/*background:url('http://i.huffpost.com/gen/3383078/images/o-SYRIAN-REFUGEE-CRISIS-facebook.jpg');*/
+	background:url('../images/bg_girl.jpg');	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center center;
+}
+
+.header-background-3 {
+	background: #1c65a3; /* fallback for old browsers */
+	/*background: -webkit-linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* Chrome 10-25, Safari 5.1-6 */
+	/*background: linear-gradient(to left, #1c65a3 , #1f8cdf);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	/*background:url('http://www.borgenmagazine.com/wp-content/uploads/2015/06/children.jpg');*/
+	background:url('http://i.huffpost.com/gen/3383078/images/o-SYRIAN-REFUGEE-CRISIS-facebook.jpg');
+	/*background:url('../images/bg_girl.jpg');*/
+	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center center;
 }
 
 .header-landing-height {
@@ -22,7 +50,7 @@
 }
 
 .title-font {
-	font-family:Roboto, Helvetica, Arial, sans-serif;
+	font-family:'Rubik', Roboto, Helvetica, Arial, sans-serif;font-weight: bold;
 }
 
 .subtitle-font {
@@ -194,4 +222,41 @@
 .os-animation.animated{
     opacity: 1;
 }
+
+.square-publication-1-background {
+
+	background:url('../images/square_children.jpg');
+	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center bottom;
+
+}
+
+.square-publication-2-background {
+
+	background:url('../images/square_woman.jpg');
+	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center bottom;
+
+}
+
+.square-publication-3-background {
+
+	background:url('../images/square_woman_flag.jpg');
+	background-size:cover;
+  	background-repeat:no-repeat;
+  	background-position: center bottom;
+
+}
+
+.blue-customized-button-plus {
+	background-color:#1a8dde;
+	color:#fff;
+	font-weight:400;
+	font-size:12pt;
+	padding:10px 20px;
+	border-radius:20px;
+}
+
 /* ./DO NOT ERASE */
